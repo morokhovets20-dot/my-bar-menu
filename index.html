@@ -68,7 +68,10 @@
 
         function send() {
             let order = menu.filter(i => i.count > 0);
-            tg.sendData(JSON.stringify(order));
+            if (order.length > 0) {
+                tg.sendData(JSON.stringify(order)); // Отправка данных
+                tg.close(); // ЗАКРЫТЬ ОКНО после отправки
+            }
         }
     </script>
 </body>
