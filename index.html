@@ -1,0 +1,75 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: sans-serif; background: #1c1c1c; color: white; margin: 0; padding: 20px; padding-top: 80px; }
+        .header { text-align: center; margin-bottom: 20px; color: #ffd700; }
+        .item { background: #2b2b2b; padding: 15px; border-radius: 15px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #3d3d3d; }
+        .info b { font-size: 18px; display: block; }
+        .info span { color: #aaa; font-size: 14px; }
+        .controls { display: flex; align-items: center; gap: 10px; }
+        button { background: #ffd700; border: none; padding: 10px 15px; border-radius: 10px; font-weight: bold; cursor: pointer; color: black; }
+        .count { font-weight: bold; min-width: 20px; text-align: center; }
+        #orderBtn { position: fixed; bottom: 20px; left: 10%; width: 80%; background: #28a745; padding: 15px; font-size: 18px; display: none; z-index: 100; }
+    </style>
+</head>
+<body>
+    <div class="header"><h2>Smaki Bar Menu 🍕</h2></div>
+    
+    <div id="items-container">
+        <div class="item">
+            <div class="info"><b>Маргарита</b><span>550₽</span></div>
+            <div class="controls">
+                <button onclick="change(0, -1)">-</button>
+                <span id="c0" class="count">0</span>
+                <button onclick="change(0, 1)">+</button>
+            </div>
+        </div>
+        <div class="item">
+            <div class="info"><b>Филадельфия</b><span>480₽</span></div>
+            <div class="controls">
+                <button onclick="change(1, -1)">-</button>
+                <span id="c1" class="count">0</span>
+                <button onclick="change(1, 1)">+</button>
+            </div>
+        </div>
+    </div>
+
+    <button id="orderBtn" onclick="send()">Оформить заказ</button>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        let menu = [
+            {id: 0, name: "Маргарита", price: 550, count: 0},
+            {id: 1, name: "Филадельфия", price: 480, count: 0}
+        ];
+
+        function change(id, delta) {
+            let item = menu.find(i => i.id === id);
+            item.count = Math.max(0, item.count + delta);
+            document.getElementById('c' + id).innerText = item.count;
+            updateBtn();
+        }
+
+        function updateBtn() {
+            let total = menu.reduce((s, i) => s + (i.price * i.count), 0);
+            let btn = document.getElementById('orderBtn');
+            if (total > 0) {
+                btn.style.display = 'block';
+                btn.innerText = `Заказать (${total}₽)`;
+            } else {
+                btn.style.display = 'none';
+            }
+        }
+
+        function send() {
+            let order = menu.filter(i => i.count > 0);
+            tg.sendData(JSON.stringify(order));
+        }
+    </script>
+</body>
+</html>
