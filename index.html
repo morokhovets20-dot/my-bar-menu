@@ -5,71 +5,32 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body { font-family: 'Segoe UI', sans-serif; background: #121212; color: white; margin: 0; padding: 15px; }
-        h2 { text-align: center; color: #ffd700; margin-bottom: 20px; }
-        
-        .item { 
-            background: #1e1e1e; 
-            border-radius: 15px; 
-            margin-bottom: 15px; 
-            overflow: hidden; /* Чтобы картинка не вылезала за углы */
-            border: 1px solid #333;
-        }
-        
-        .item img { 
-            width: 100%; 
-            height: 150px; 
-            object-fit: cover; /* Картинка заполнит блок красиво */
-        }
-        
-        .item-content { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        
-        .info b { font-size: 18px; color: #fff; display: block; }
-        .info span { color: #ffd700; font-weight: bold; }
-        
-        button { 
-            background: #ffd700; 
-            border: none; 
-            padding: 10px 20px; 
-            border-radius: 10px; 
-            font-weight: bold; 
-            color: #000;
-            cursor: pointer;
-        }
-        
-        #orderBtn { 
-            position: fixed; 
-            bottom: 20px; 
-            left: 5%; 
-            width: 90%; 
-            background: #28a745; 
-            padding: 15px; 
-            color: white; 
-            border: none; 
-            border-radius: 12px; 
-            font-size: 16px; 
-            font-weight: bold;
-            display: none; 
-            box-shadow: 0 4px 15px rgba(0,0,0,0.5);
-        }
+        body { font-family: sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 15px; }
+        .header { text-align: center; color: #c9a050; margin-bottom: 20px; }
+        .item { background: #1a1a1a; border-radius: 15px; margin-bottom: 15px; overflow: hidden; border: 1px solid #2a2a2a; }
+        .item img { width: 100%; height: 180px; object-fit: cover; }
+        .content { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .info b { color: #c9a050; font-size: 18px; display: block; }
+        button { background: #c9a050; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; color: black; }
+        #orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 15px; border-radius: 10px; font-weight: bold; display: none; border: none; color: black; }
     </style>
 </head>
 <body>
-    <h2>Smaki Bar Menu 🍕</h2>
+    <div class="header"><h2>Dym Rzeszów Shop 💨</h2></div>
     
     <div class="item">
-        <img src="https://i.imgur.com/8B6p6yX.jpg" alt="Пицца">
-        <div class="item-content">
-            <div class="info"><b>Пицца Маргарита</b><span>550₽</span></div>
-            <button onclick="add('Маргарита', 550)">+</button>
+        <img src="https://images.unsplash.com/photo-1527335441081-086715617311?w=500">
+        <div class="content">
+            <div class="info"><b>Alpha Hookah X</b><br>9 500₽</div>
+            <button onclick="add('Alpha Hookah X', 9500)">+</button>
         </div>
     </div>
 
     <div class="item">
-        <img src="https://i.imgur.com/k98IqKj.jpg" alt="Роллы">
-        <div class="item-content">
-            <div class="info"><b>Филадельфия</b><span>480₽</span></div>
-            <button onclick="add('Филадельфия', 480)">+</button>
+        <img src="https://images.unsplash.com/photo-1601625463687-25541fb72f67?w=500">
+        <div class="content">
+            <div class="info"><b>Darkside Core</b><br>850₽</div>
+            <button onclick="add('Darkside Core', 850)">+</button>
         </div>
     </div>
 
@@ -82,9 +43,8 @@
 
         function add(name, price) {
             cart.push({name: name, price: price});
-            let btn = document.getElementById('orderBtn');
-            btn.style.display = 'block';
-            btn.innerText = `Оформить заказ (${cart.length})`;
+            document.getElementById('orderBtn').style.display = 'block';
+            document.getElementById('orderBtn').innerText = `Оформить заказ (${cart.length})`;
         }
 
         function send() {
