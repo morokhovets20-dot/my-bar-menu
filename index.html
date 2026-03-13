@@ -5,46 +5,76 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
-        body { font-family: sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 15px; }
-        .header { text-align: center; color: #c9a050; margin-bottom: 20px; }
-        .item { background: #1a1a1a; border-radius: 15px; margin-bottom: 15px; overflow: hidden; border: 1px solid #2a2a2a; }
+        body { font-family: sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 15px; padding-bottom: 80px; }
+        .header { text-align: center; color: #c9a050; margin-bottom: 15px; }
+        
+        /* Кнопки категорий */
+        .categories { display: flex; gap: 10px; overflow-x: auto; margin-bottom: 20px; padding-bottom: 5px; }
+        .cat-btn { background: #1a1a1a; color: #888; border: 1px solid #2a2a2a; padding: 8px 15px; border-radius: 20px; white-space: nowrap; cursor: pointer; }
+        .cat-btn.active { background: #c9a050; color: black; border-color: #c9a050; font-weight: bold; }
+
+        .item { background: #1a1a1a; border-radius: 15px; margin-bottom: 15px; overflow: hidden; border: 1px solid #2a2a2a; display: block; }
         .item img { width: 100%; height: 180px; object-fit: cover; }
         .content { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
-        .info b { color: #c9a050; font-size: 18px; display: block; }
-        button { background: #c9a050; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; color: black; }
-        #orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 15px; border-radius: 10px; font-weight: bold; display: none; border: none; color: black; }
+        .info b { color: #c9a050; font-size: 18px; }
+        
+        button.add-btn { background: #c9a050; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; color: black; }
+        
+        #orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 15px; border-radius: 10px; font-weight: bold; display: none; border: none; color: black; z-index: 999; }
     </style>
 </head>
 <body>
     <div class="header"><h2>Dym Rzeszów Shop 💨</h2></div>
+
+    <div class="categories">
+        <div class="cat-btn active" onclick="filter('all', this)">Все</div>
+        <div class="cat-btn" onclick="filter('hookah', this)">Кальяны</div>
+        <div class="cat-btn" onclick="filter('tobacco', this)">Табак</div>
+        <div class="cat-btn" onclick="filter('coal', this)">Уголь</div>
+    </div>
     
-   <div class="item">
-        <img src="https://images.pexels.com/photos/4198139/pexels-photo-4198139.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Кальян">
+    <div class="item" data-cat="hookah">
+        <img src="https://images.pexels.com/photos/4198139/pexels-photo-4198139.jpeg?auto=compress&cs=tinysrgb&w=500">
         <div class="content">
             <div class="info"><b>Alpha Hookah X</b><br>9 500₽</div>
-            <button onclick="add('Alpha Hookah X', 9500)">+</button>
+            <button class="add-btn" onclick="add('Alpha Hookah X', 9500)">+</button>
         </div>
     </div>
 
-    <div class="item">
-        <img src="https://images.pexels.com/photos/4198133/pexels-photo-4198133.jpeg?auto=compress&cs=tinysrgb&w=500" alt="Табак">
+    <div class="item" data-cat="tobacco">
+        <img src="https://images.pexels.com/photos/4198133/pexels-photo-4198133.jpeg?auto=compress&cs=tinysrgb&w=500">
         <div class="content">
             <div class="info"><b>Darkside Core</b><br>850₽</div>
-            <button onclick="add('Darkside Core', 850)">+</button>
+            <button class="add-btn" onclick="add('Darkside Core', 850)">+</button>
         </div>
     </div>
 
-    <button id="orderBtn" onclick="send()">Заказать</button>
+    <button id="orderBtn" onclick="send()">Оформить заказ</button>
 
     <script>
         let tg = window.Telegram.WebApp;
         tg.expand();
         let cart = [];
 
+        function filter(cat, btn) {
+            // Убираем активный класс у всех кнопок
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+
+            // Показываем/скрываем товары
+            document.querySelectorAll('.item').forEach(item => {
+                if (cat === 'all' || item.getAttribute('data-cat') === cat) {
+                    item.style.display = 'block';
+                } else {
+                    item.style.display = 'none';
+                }
+            });
+        }
+
         function add(name, price) {
             cart.push({name: name, price: price});
             document.getElementById('orderBtn').style.display = 'block';
-            document.getElementById('orderBtn').innerText = `Оформить заказ (${cart.length})`;
+            document.getElementById('orderBtn').innerText = `Подтвердить заказ (${cart.length})`;
         }
 
         function send() {
