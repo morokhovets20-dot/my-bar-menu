@@ -15,8 +15,9 @@
         .modal{display:none;position:fixed;top:0;left:0;width:100%;height:100%;background:rgba(0,0,0,0.9);z-index:2000;justify-content:center;align-items:center;}
         .modal-content{background:#161616;padding:25px;border-radius:20px;width:80%;text-align:center;border:1px solid #c9a050;}
         .time-input{width:100%;padding:12px;margin-top:10px;border-radius:10px;border:1px solid #2a2a2a;background:#000;color:white;text-align:center;outline:none;border:1px solid #c9a050;}
+        .pay-btn{width:100%;padding:15px;margin:5px 0;background:#161616;color:white;border-radius:10px;border:1px solid #2a2a2a;font-weight:bold;}
         </style></head><body>
-        <div class="header"><h3>Dym Rzeszów Shop V2 💨</h3></div>
+        <div class="header"><h3>Dym Rzeszów Shop V3 💨</h3></div>
         <input type="text" id="search" class="search-box" placeholder="Поиск..." oninput="handleSearch(this.value)">
         <div id="main-menu" class="main-grid">
             <div class="grid-item" onclick="openCat('tob_strong')"><span>🔥</span>Табак (Кр.)</div>
@@ -3967,25 +3968,50 @@
         <div id="deliveryModal" class="modal">
             <div class="modal-content">
                 <h3 style="color:#c9a050">Способ получения</h3>
-                <button style="width:100%;padding:15px;margin:10px 0;background:#c9a050;border-radius:10px;border:none;font-weight:bold;" onclick="selectMethod('Доставка')">🚚 Доставка</button>
-                <button style="width:100%;padding:15px;margin:10px 0;background:#2a2a2a;color:white;border-radius:10px;border:none;font-weight:bold;" onclick="selectMethod('Самовывоз')">🏃 Самовывоз</button>
+                <button class="pay-btn" style="background:#c9a050;color:black;" onclick="selectMethod('Доставка')">🚚 Доставка</button>
+                <button class="pay-btn" onclick="selectMethod('Самовывоз')">🏃 Самовывоз</button>
+            </div>
+        </div>
+
+        <div id="paymentModal" class="modal">
+            <div class="modal-content">
+                <h3 style="color:#c9a050">Способ оплаты</h3>
+                <button class="pay-btn" onclick="selectPayment('PLN')">💵 Злотые (PLN)</button>
+                <button class="pay-btn" onclick="selectPayment('USD')">💵 Доллары (USD)</button>
+                <button class="pay-btn" onclick="selectPayment('EUR')">💶 Евро (EUR)</button>
+                <button class="pay-btn" style="border-color:#c9a050" onclick="selectPayment('USDT')">💎 USDT (TRC20)</button>
             </div>
         </div>
 
         <div id="timeModal" class="modal">
             <div class="modal-content">
                 <h3 id="timeTitle" style="color:#c9a050">Время</h3>
-                <button style="width:100%;padding:15px;margin:10px 0;background:#c9a050;border-radius:10px;border:none;font-weight:bold;" onclick="finishOrder('Ближайшее время')">🚀 Как можно скорее</button>
+                <button class="pay-btn" style="background:#c9a050;color:black;" onclick="finishOrder('Ближайшее время')">🚀 Как можно скорее</button>
                 <p style="margin-top:10px;">Или свое время:</p>
-                <input type="text" id="customTime" class="time-input" placeholder="Например: 19:30 - 20:00">
-                <button style="width:100%;padding:12px;margin-top:15px;background:none;border:1px solid #c9a050;color:#c9a050;border-radius:10px;" onclick="finishOrder(document.getElementById('customTime').value)">Подтвердить время</button>
+                <input type="text" id="customTime" class="time-input" placeholder="Например: 19:30">
+                <button class="pay-btn" style="border:1px solid #c9a050;color:#c9a050;background:none;" onclick="finishOrder(document.getElementById('customTime').value)">Подтвердить время</button>
             </div>
         </div>
 
         <script>
         let tg=window.Telegram.WebApp;tg.expand();
         let cart={};
+        let products = {'420 Forest Line 100gr Banana Strawberry': 70, '420 Forest Line 100gr Pink berries': 70, '420 Forest Line 100gr Double melon': 70, '420 Forest Line 100gr Toxic cactus': 70, '420 Forest Line 100gr Waterberry shot': 70, '420 Forest Line 100gr Berry citrus': 70, '420 Forest Line 100gr Captain baldezh': 70, '420 Forest Line 100gr Ice grape berry': 70, '420 Forest Line 100gr Berry zen': 70, '420 Forest Line 100gr Freeze pop': 70, '420 Forest Line 100gr Peach ice pear': 70, '420 Forest Line 100gr Candy mint': 70, '420 Forest Line 100gr Watermelon margarita': 70, '420 Forest Line 100gr Porn star martini': 70, '420 Forest Line 100gr Malibu vibe': 70, '420 Forest Line 100gr Grapefruit melons': 70, '420 Forest Line 100gr Space jam': 70, '420 Forest Line 100gr Red kiwi': 70, '420 Forest Line 100gr Cherry lemonade': 70, '420 Forest Line 100gr Grape beat': 70, '420 Forest Line 100gr Thailand Shot': 70, '420 Forest Line 100gr Love is': 70, 'Heven 100gr Double mix': 70, 'Heven 100gr One pear': 70, 'Unity 100gr Caribbean rum': 75, 'Unity 100gr Coconut shake': 75, 'Unity 100gr Wild berries': 75, 'Unity 100gr Fresh lemonade': 75, 'Unity 100gr Blackcurrant': 75, 'Unity 100gr Frutella': 75, 'Unity 100gr Pink stoner': 75, 'Unity 100gr Bamboo': 75, 'Unity 100gr Acid lemon': 75, 'Unity 100gr Cola': 75, 'Unity 100gr Watermelon ice cream': 75, 'Unity 100gr Berry jelly': 75, 'Unity 100gr Citrus spritz': 75, 'Unity 100gr Lemon mint sorbet': 75, 'Unity 100gr Christmas vibe': 75, 'Unity 100gr Cranberry mors': 75, 'Unity 100gr Turbo': 75, 'Unity 100gr Kiwi lemonade': 75, 'Unity 100gr Berry lemonade': 75, 'Unity 100gr Pineapple candy': 75, 'Unity 100gr Tropic rave': 75, 'Unity 100gr Slimer': 75, 'Unity 100gr Star story': 75, 'Unity 100gr Grape jelly': 75, 'Unity 100gr Rainbow candy': 75, 'Unity 100gr Gravefruit': 75, 'Unity 100gr Acid bery': 75, 'Unity 100gr Mango kiss': 75, 'Unity 100gr Dragon passion': 75, 'Unity 100gr Guarana berry': 75, 'Unity 100gr Champange papi': 75, 'Unity 100gr Strawberry tic-tac': 75, 'Unity 100gr Cherry shot': 75, 'Unity 100gr Pink grapefruit': 75, 'Unity 100gr Pear anormal': 75, 'Unity 100gr Space flavor': 75, 'Unity 100gr Berry jelly': 75, 'Unity 100gr Salvia': 75, '420 Light 100gr Черничный маффин': 65, '420 Light 100gr Айс яблоко': 65, '420 Light 100gr Рафаело': 65, '420 Light 100gr Ред микс': 65, '420 Light 100gr Клубника базилик': 65, '420 Light 100gr Виноград мята': 65, '420 Light 100gr Грин микс': 65, '420 Light 100gr Вишная барбарис': 65, '420 Light 100gr Яблочные медвежата': 65, '420 Light 100gr Свежие ягоды': 65, '420 Light 100gr Ягодный морс': 65, '420 Light 100gr Розовый лимонад': 65, '420 Light 100gr Цитрусовый лимонад': 65, '420 Light 100gr Фруктовая жвачка': 65, '420 Light 100gr Черника мята': 65, '420 Light 100gr Арбуз лимон': 65, '420 Light 100gr Леди киллер': 65, '420 Light 100gr Лимончело': 65, '420 Light 100gr Енергетик': 65, '420 Light 100gr Айс лимон мята': 65, '420 Light 100gr Ягодная жвачка': 65, 'Tangiers 100gr Ginger pear': 90, 'Tangiers 100gr Strawberry kiwi': 90, 'Tangiers 100gr Jamaica': 90, 'Tangiers 100gr Cherry limeade': 90, 'Honey Badger 100gr BANANA': 50, 'DarkSide 100gr Tear': 80, 'DarkSide 100gr Bnpapa': 80, 'DarkSide 100gr Space ichi': 80, 'MustHave 125gr Milky rice': 90, 'MustHave 125gr Alova': 90, 'MustHave 125gr Blackberry': 90, 'MustHave 125gr Green fizz': 90, 'MustHave 125gr Nord star': 90, 'MustHave 125gr Made pear': 90, 'MustHave 125gr Berry holls': 90, 'MustHave 125gr Space ichi': 90, 'Oven 1kg': 30, 'Crown 1kg': 30, 'Gresco 1kg': 30, 'Elfbar Ri 3000 Blueberry orange': 60, 'Elfbar Ri 3000 Blueberry green apple': 60, 'Elfbar Ri 3000 Watermelon coconut water': 60, 'Elfbar Ri 3000 Grape ice': 60, 'Elfbar Ri 3000 Watermelon kiwi berry ice': 60, 'Elfbar Ri 3000 Strawberry ice': 60, 'Elfbar Ri 3000 Blueberry raspberry lemon': 60, 'Elfbar Ri 3000 Blackberry grape ice': 60, 'Elfbar Ri 3000 Watermelon ice': 60, 'HQD Cuvie bar Orange ice': 75, 'HQD Cuvie bar Strawberry banana': 75, 'HQD Cuvie bar Mix berries': 75, 'HQD Cuvie bar Black ice': 75, 'HQD Cuvie bar Peach berry': 75, 'HQD Cuvie bar Orange mango watermelon': 75, 'HQD Cuvie bar Dragon candy': 75, 'HQD Cuvie bar Cactus kiwi': 75, 'HQD Cuvie bar Red ice': 75, 'Elfbar GH 23 000 Green plum sour lime': 110, 'Elfbar GH 23 000 Blue razz ice': 110, 'Elfbar GH 23 000 Chery cola': 110, 'Elfbar GH 23 000 Apple pear': 110, 'Elfbar GH 23 000 Raspberry watermelon lemon': 110, 'Elfbar GH 23 000 Jasmine raspberry': 110, 'Elfbar Combo 25 000 Watermelon / Strawberry': 120, 'Elfbar Combo 25 000 Apple / Juice peach': 120, 'Elfbar Raya D3 25 000 Apple mint': 120, 'Elfbar Raya D3 25 000 Grape ice': 120, 'Elfbar Raya D3 25 000 Lemon lime': 120, 'Elfbar Ice King 30 000 Banana cake': 120, 'Elfbar Ice King 30 000 Lime cola': 120, 'Elfbar Ice King 30 000 Ribena lychee': 120, 'Elfbar Ice King 30 000 Miami mint': 120, 'Elfbar Ice King 30 000 Strawberry kiwi ice': 120, 'Elfbar Nic King 30 000 Blue razz ice': 120, 'Elfbar Nic King 30 000 Chilly river': 120, 'Elfbar Nic King 30 000 Ice blue rose': 120, 'Elfbar Nic King 30 000 Key lime': 120, 'Elfbar Nic King 30 000 Grapefruit green tea': 120, 'Elfbar Sweet King 30 000 Pine needle mint': 120, 'Elfbar Raya D3 Pro Blueberry ice': 135, 'Elfbar Raya D3 Pro Blackberry': 135, 'Elfbar Raya D3 Pro Blueberry raspberry watermelon': 135, 'Elfbar Raya D3 Pro Cola ice': 135, 'Elfbar Raya D3 Pro Lychee juice peach': 135, 'Elfbar Raya D3 Pro Peach ice': 135, 'Elfbar Raya D3 Pro Peach lychee blackcurrant': 135, 'Elfbar GH 33 000 Blue razz ice': 140, 'Elfbar GH 33 000 Pear soda': 140, 'Elfbar GH 33 000 Pine needles': 140, 'Elfbar GH 33 000 Apple kiwi ice': 140, 'Elfbar TRIO 40 000 Cool menthol': 145, 'Elfbar TRIO 40 000 La grape': 145, 'Elfbar TRIO 40 000 Peach twist': 145, 'Elfbar TRIO 40 000 Sakura grape': 145, 'Elfbar Lush King 40 000 Cherry burst': 130, 'Elfbar Lush King 40 000 Black currant pineaple': 130, 'Elfbar Lush King 40 000 Black grape ice': 130, 'Elfbar Lush King 40 000 Cactus lime': 130, 'Elfbar Lush King 40 000 Cucumber lime': 130, 'Elfbar Lush King 40 000 Milky oolong': 130, 'Elfbar Lush King 40 000 Mountain mint': 130, 'Elfbar Lush King 40 000 Sour strawberry dragonfruit': 130, 'Elfbar Lush King 40 000 Starfruit grape': 130, 'Elfbar BC PRO 40 000 Aurora berries': 130, 'Elfbar BC PRO 40 000 Black mint': 130, 'Elfbar BC PRO 40 000 Blackberry grape': 130, 'Elfbar BC PRO 40 000 Pineapple pom': 130, 'Elfbar BC PRO 40 000 Sour apple ice': 130, 'Elfbar BC PRO 40 000 Sour fcuking fab': 130, 'Elfbar BC PRO 40 000 Strawberry blend': 130, 'Elfbar BC PRO 40 000 Strawberry kiwi': 130, 'Elfbar BC PRO 40 000 Strawberry raspberry frost': 130, 'Elfbar BC PRO 40 000 Toasted pineapple': 130, 'Elfbar BC PRO 40 000 Triple berry': 130, 'Elfbar BC PRO 40 000 Watermelon peach frost': 130, 'Elfbar BC PRO 40 000 Winter mint': 130, 'Elfbar BC 45 000 BLACKBERRY LEMONADE': 155, 'Elfbar BC 45 000 BLACKCURRANT GRAPE': 155, 'Elfbar BC 45 000 CHERRY PEACH SODA': 155, 'Elfbar BC 45 000 DOUBLE MINT': 155, 'Elfbar BC 45 000 KIWI PINEAPPLE PEACH': 155, 'Elfbar BC 45 000 LEMON LIME': 155, 'Elfbar BC 45 000 PEAR SODA': 155, 'Elfbar BC 45 000 POMEGRANATE RASPBERRY LIME': 155, 'Elfbar BC 45 000 RED RASPBERRY STRAWBERRY': 155, 'Elfbar BC 45 000 SOUR APPLE KIWI': 155, 'Elfbar BC 45 000 STRAWBERRY GRAPEFRUIT': 155, 'ELFLIQ 30ml-50mg BLACKBERRY LEMON': 60, 'ELFLIQ 30ml-50mg BLUE RAZZ LEMONADE': 60, 'ELFLIQ 30ml-50mg BLUEBERRY': 60, 'ELFLIQ 30ml-50mg BLUEBERRY SOUR RASPBERRY': 60, 'ELFLIQ 30ml-50mg CHERRY': 60, 'ELFLIQ 30ml-50mg CHERRY COLA': 60, 'ELFLIQ 30ml-50mg ELF JACK': 60, 'ELFLIQ 30ml-50mg ELFBULL ICE': 60, 'ELFLIQ 30ml-50mg GRAPE': 60, 'ELFLIQ 30ml-50mg KIWI PASSION FRUIT GUAVA': 60, 'ELFLIQ 30ml-50mg PINK LEMONADE': 60, 'ELFLIQ 30ml-50mg RHUBARB SNOOW': 60, 'ELFLIQ 30ml-50mg SPEARMINT': 60, 'ELFLIQ 30ml-50mg STRAWBERRY KIWI': 60, 'ELFLIQ 30ml-50mg STRAWBERRY RASPBERRY CHERRY ICE': 60, 'ELFLIQ 30ml-50mg APPLE PEAR': 60, 'ELFLIQ 30ml-50mg BLUEBERRY RASPBERRY POMEGRANATE': 60, 'ELFLIQ 30ml-50mg BLUEBERRY ROSE MINT': 60, 'ELFLIQ 30ml-50mg CHERRY LEMON PEACH': 60, 'ELFLIQ 30ml-50mg COOL MINT': 60, 'ELFLIQ 30ml-50mg GRAPE CHERRY': 60, 'ELFLIQ 30ml-50mg GREEN GRAPE ROSE': 60, 'ELFLIQ 30ml-50mg PINEAPPLE ICE': 60, 'ELFLIQ 30ml-50mg PINK LEMONADE SODA': 60, 'ELFLIQ 30ml-50mg SOUR WATERMELON GUMMY': 60, 'ELFLIQ 30ml-50mg STRAWBERRY BANANA': 60, 'ELFLIQ 30ml-50mg STRAWBERRY CHERRY LEMON': 60, 'ELFLIQ 30ml-50mg WATERMELON CHERRY': 60, 'ELFLIQ 30ml-50mg Cuba tobacco': 60, 'VOZOL 30ml-50mg Pineapple passion fruit lime': 60, 'VOZOL 30ml-50mg Purple candy': 60, 'VOZOL 30ml-50mg Perfume lemon': 60, 'VOZOL 30ml-50mg Grape ice': 60, 'VOZOL 30ml-50mg Peach ice': 60, 'VOZOL 30ml-50mg Strawberry ice cream': 60, 'VOZOL 30ml-50mg Berry': 60, 'VOZOL 30ml-50mg Mint ice': 60, 'VOZOL 30ml-50mg Dragon Fruit banana cherry': 60, 'VOZOL 30ml-50mg Peach mango watermelon': 60, 'VOZOL 30ml-50mg Cherry cola': 60, 'VOZOL 30ml-50mg Watermelon bubblegum': 60, 'VOZOL 30ml-50mg Kiwi passion fruit guava': 60, 'VOZOL 30ml-50mg Watermelon ice': 60, 'VOZOL 30ml-50mg Pomegranate lemonade': 60, 'VOZOL 30ml-50mg Strawberry watermelon': 60, 'VOZOL 30ml-50mg Lavafire': 60, 'VOZOL 30ml-50mg Blue razz lemon': 60, 'VOZOL 30ml-50mg Berry peach': 60, 'VOZOL 30ml-50mg Blueberry watermelon': 60, 'VOZOL 30ml-50mg Sour apple ice': 60, 'VOZOL 30ml-50mg Blue raspberry': 60, 'VOZOL 30ml-50mg Blueberry ice': 60, 'VOZOL 30ml-50mg Lemon lime': 60, 'VOZOL 30ml-50mg Strawberry ice': 60, 'Chaser Black 30ml-60mg BLACKBERRY SOUR RASPBERRY': 65, 'Chaser Black 30ml-60mg ENERGY GRAPE': 65, 'Chaser Black 30ml-60mg ENERGY RASPBERRY': 65, 'Chaser Black 30ml-60mg FLIRT': 65, 'Chaser Black 30ml-60mg FOREST MIX': 65, 'Chaser Black 30ml-60mg PINK LEMONADE': 65, 'Chaser Black 30ml-60mg STRAWBERRY BLUEBERRY': 65, 'Chaser Black 30ml-60mg KIWI PASSIONFRUIT GUAVA': 65, 'Chaser Black 30ml-60mg TRIPLE BERRY': 65, 'Chaser Black 30ml-60mg TRIPLE RASPBERRY': 65, 'Chaser Black 30ml-60mg TRIPLE SOUR APPLE': 65, 'Chaser Black 30ml-60mg WATERMELON LEMON': 65, 'Chaser Black 30ml-60mg BUBBLEGUM': 65, 'Chaser Black 30ml-60mg PEACH LEMONADE': 65, 'Chaser Black 30ml-60mg BANANA APPLE': 65, 'Chaser Black 30ml-60mg BLACKCURRANT PEACH APPLE': 65, 'Chaser Black 30ml-60mg MOJITO': 65, 'Chaser Black 30ml-60mg BALI': 65, 'Chaser Black 30ml-60mg WILD STRAWBERRY KIWI': 65, 'Chaser Black 30ml-60mg LEMON MINT': 65, 'Chaser Black 30ml-60mg COMPOTE': 65, 'Chaser Special 30ml-60mg Mystery one': 65, 'Chaser Special 30ml-60mg Cranberry mint': 65, 'Chaser Special 30ml-60mg Strawberry jelly': 65, 'Vaporesso XROS 5 mini Black': 130, 'Vaporesso XROS 5 mini Flowing grean': 130, 'Vaporesso XROS 5 Pro 2 POD GLITTERING BLACK': 205, 'Vaporesso XROS 5 Pro 2 POD GLITTERING SILVER': 205, 'Vaporesso XROS 5 Pro 2 POD GLITTERING GOLD': 205, 'Vaporesso XROS 5 Pro 2 POD GEM GREEN': 205, 'Vaporesso XROS 5 Pro 2 POD STORM BLUE': 205, 'Vaporesso XROS 5 Pro 2 POD MOONLIT PINK': 205, 'Vaporesso XROS 5 Pro 2 POD DAWN PURPLE': 205, 'Elf X Purple': 90, 'Elf X Purple': 90, 'Vaporesso Cartridge 3ml 0,8Ω': 25, 'Elf X Cartridge 3ml 0,8Ω': 22, };
         let currentMethod = '';
+        let currentPayment = '';
+        let exchangeRates = { "USD": 0.25, "EUR": 0.23, "USDT": 0.24 };
+
+        async function fetchRates() {
+            try {
+                let response = await fetch('https://api.coingecko.com/api/v3/simple/price?ids=tether&vs_currencies=pln');
+                let data = await response.json();
+                let usdtRate = 1 / data.tether.pln;
+                exchangeRates["USDT"] = usdtRate;
+                exchangeRates["USD"] = usdtRate * 1.02; 
+                exchangeRates["EUR"] = usdtRate * 0.95;
+            } catch (e) { console.log("Курсы не загружены, используем стандарт"); }
+        }
+        fetchRates();
 
         function openCat(c){document.getElementById('main-menu').style.display='none';document.getElementById('catalog').style.display='block';document.getElementById('back').style.display='block';document.querySelectorAll('.item').forEach(i=>i.style.display=i.dataset.cat===c?'block':'none');}
         function showMain(){document.getElementById('main-menu').style.display='grid';document.getElementById('catalog').style.display='none';document.getElementById('back').style.display='none';}
@@ -4010,13 +4036,32 @@
         function selectMethod(m) {
             currentMethod = m;
             document.getElementById('deliveryModal').style.display = 'none';
+            document.getElementById('paymentModal').style.display = 'flex';
+        }
+
+        function selectPayment(p) {
+            currentPayment = p;
+            document.getElementById('paymentModal').style.display = 'none';
             document.getElementById('timeModal').style.display = 'flex';
-            document.getElementById('timeTitle').innerText = m === 'Доставка' ? 'Время доставки' : 'Время самовывоза';
         }
 
         function finishOrder(t){
             let time = t || 'Ближайшее время';
-            let data=Object.keys(cart).map(k=>({name:k,count:cart[k],method:currentMethod,time:time}));
+            let totalPLN = Object.keys(cart).reduce((sum, n) => sum + (cart[n] * products[n]), 0);
+            
+            let finalAmt = totalPLN;
+            if(currentPayment !== 'PLN') finalAmt = (totalPLN * exchangeRates[currentPayment]).toFixed(2);
+
+            let data = Object.keys(cart).map(k=>({
+                name: k,
+                count: cart[k],
+                method: currentMethod,
+                payment: currentPayment,
+                time: time,
+                totalPLN: totalPLN,
+                finalAmt: finalAmt
+            }));
+            
             tg.sendData(JSON.stringify(data));
             tg.close();
         }
