@@ -1,16 +1,10 @@
-<!DOCTYPE html>
-<html>
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <script src="https://telegram.org/js/telegram-web-app.js"></script>
-    <style>
+<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://telegram.org/js/telegram-web-app.js"></script><style>
         body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 15px; padding-bottom: 100px; }
         .header { text-align: center; color: #c9a050; margin-bottom: 15px; }
         .search-box { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #333; background: #1a1a1a; color: white; margin-bottom: 15px; box-sizing: border-box; outline: none; }
         .categories { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 20px; padding-bottom: 10px; scrollbar-width: none; }
         .categories::-webkit-scrollbar { display: none; }
-        .cat-btn { background: #1a1a1a; color: #888; border: 1px solid #2a2a2a; padding: 10px 18px; border-radius: 20px; white-space: nowrap; font-size: 14px; transition: 0.3s; }
+        .cat-btn { background: #1a1a1a; color: #888; border: 1px solid #2a2a2a; padding: 10px 18px; border-radius: 20px; white-space: nowrap; font-size: 13px; transition: 0.3s; }
         .cat-btn.active { background: #c9a050; color: black; font-weight: bold; border-color: #c9a050; }
         .item { background: #1a1a1a; border-radius: 15px; margin-bottom: 10px; border: 1px solid #2a2a2a; }
         .content { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
@@ -18,23 +12,21 @@
         .info span { color: #888; font-size: 13px; display: block; }
         .price { color: #fff; font-weight: bold; margin-top: 5px; }
         button.add-btn { background: #c9a050; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
-        #orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 16px; border-radius: 15px; font-weight: bold; display: none; border: none; color: black; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
-    </style>
-</head>
-<body>
-    <div class="header"><h2>Dym Rzeszów Shop 💨</h2></div>
-    <input type="text" class="search-box" placeholder="Поиск товара или бренда..." oninput="search(this.value)">
-    
-    <div class="categories">
-        <div class="cat-btn active" onclick="filter('all', this)">Все</div>
-        <div class="cat-btn" onclick="filter('tobacco', this)">Табак</div>
-        <div class="cat-btn" onclick="filter('ep', this)">Одноразки</div>
-        <div class="cat-btn" onclick="filter('liq', this)">Жидкости</div>
-        <div class="cat-btn" onclick="filter('dev', this)">Железо</div>
-    </div>
-
-    <div id="catalog">
-            <div class="item" data-cat="tobacco">
+        #orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 16px; border-radius: 12px; font-weight: bold; display: none; border: none; color: black; z-index: 1000; }
+        </style></head><body>
+        <div class="header"><h2>Dym Rzeszów Shop 💨</h2></div>
+        <input type="text" class="search-box" placeholder="Поиск..." oninput="search(this.value)">
+        <div class="categories">
+            <div class="cat-btn active" onclick="filter('all', this)">Все</div>
+            <div class="cat-btn" onclick="filter('tob_strong', this)">Табак (Крепкий)</div>
+            <div class="cat-btn" onclick="filter('tob_light', this)">Табак (Легкий)</div>
+            <div class="cat-btn" onclick="filter('ep', this)">Одноразки</div>
+            <div class="cat-btn" onclick="filter('liq', this)">Жижки</div>
+            <div class="cat-btn" onclick="filter('pods', this)">Поды</div>
+            <div class="cat-btn" onclick="filter('carts', this)">Картриджи</div>
+        </div>
+        <div id="catalog">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -44,7 +36,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Banana Strawberry', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -54,7 +46,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Pink berries', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -64,7 +56,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Double melon', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -74,7 +66,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Toxic cactus', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -84,7 +76,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Waterberry shot', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -94,7 +86,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Berry citrus', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -104,7 +96,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Captain baldezh', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -114,7 +106,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Ice grape berry', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -124,7 +116,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Berry zen', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -134,7 +126,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Freeze pop', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -144,7 +136,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Peach ice pear', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -154,7 +146,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Candy mint', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -164,7 +156,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Watermelon margarita', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -174,7 +166,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Porn star martini', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -184,7 +176,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Malibu vibe', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -194,7 +186,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Grapefruit melons', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -204,7 +196,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Space jam', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -214,7 +206,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Red kiwi', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -224,7 +216,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Cherry lemonade', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -234,7 +226,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Grape beat', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -244,7 +236,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Thailand Shot', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>420 Forest Line 100gr</b>
@@ -254,7 +246,7 @@
                     <button class="add-btn" onclick="add('420 Forest Line 100gr Love is', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Heven 100gr</b>
@@ -264,7 +256,7 @@
                     <button class="add-btn" onclick="add('Heven 100gr Double mix', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Heven 100gr</b>
@@ -274,7 +266,7 @@
                     <button class="add-btn" onclick="add('Heven 100gr One pear', 70)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -284,7 +276,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Caribbean rum', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -294,7 +286,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Coconut shake', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -304,7 +296,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Wild berries', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -314,7 +306,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Fresh lemonade', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -324,7 +316,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Blackcurrant', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -334,7 +326,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Frutella', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -344,7 +336,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Pink stoner', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -354,7 +346,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Bamboo', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -364,7 +356,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Acid lemon', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -374,7 +366,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Cola', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -384,7 +376,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Watermelon ice cream', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -394,7 +386,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Berry jelly', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -404,7 +396,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Citrus spritz', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -414,7 +406,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Lemon mint sorbet', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -424,7 +416,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Christmas vibe', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -434,7 +426,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Cranberry mors', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -444,7 +436,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Turbo', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -454,7 +446,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Kiwi lemonade', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -464,7 +456,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Berry lemonade', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -474,7 +466,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Pineapple candy', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -484,7 +476,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Tropic rave', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -494,7 +486,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Slimer', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -504,7 +496,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Star story', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -514,7 +506,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Grape jelly', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -524,7 +516,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Rainbow candy', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -534,7 +526,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Gravefruit', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -544,7 +536,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Acid bery', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -554,7 +546,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Mango kiss', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -564,7 +556,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Dragon passion', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -574,7 +566,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Guarana berry', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -584,7 +576,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Champange papi', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -594,7 +586,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Strawberry tic-tac', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -604,7 +596,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Cherry shot', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -614,7 +606,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Pink grapefruit', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -624,7 +616,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Pear anormal', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -634,7 +626,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Space flavor', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -644,7 +636,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Berry jelly', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Unity 100gr</b>
@@ -654,7 +646,7 @@
                     <button class="add-btn" onclick="add('Unity 100gr Salvia', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -664,7 +656,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Черничный маффин', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -674,7 +666,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Айс яблоко', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -684,7 +676,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Рафаело', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -694,7 +686,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Ред микс', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -704,7 +696,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Клубника базилик', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -714,7 +706,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Виноград мята', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -724,7 +716,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Грин микс', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -734,7 +726,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Вишная барбарис', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -744,7 +736,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Яблочные медвежата', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -754,7 +746,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Свежие ягоды', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -764,7 +756,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Ягодный морс', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -774,7 +766,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Розовый лимонад', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -784,7 +776,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Цитрусовый лимонад', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -794,7 +786,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Фруктовая жвачка', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -804,7 +796,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Черника мята', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -814,7 +806,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Арбуз лимон', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -824,7 +816,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Леди киллер', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -834,7 +826,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Лимончело', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -844,7 +836,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Енергетик', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -854,7 +846,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Айс лимон мята', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_light">
                 <div class="content">
                     <div class="info">
                         <b>420 Light 100gr</b>
@@ -864,7 +856,7 @@
                     <button class="add-btn" onclick="add('420 Light 100gr Ягодная жвачка', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Tangiers 100gr</b>
@@ -874,7 +866,7 @@
                     <button class="add-btn" onclick="add('Tangiers 100gr Ginger pear', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Tangiers 100gr</b>
@@ -884,7 +876,7 @@
                     <button class="add-btn" onclick="add('Tangiers 100gr Strawberry kiwi', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Tangiers 100gr</b>
@@ -894,7 +886,7 @@
                     <button class="add-btn" onclick="add('Tangiers 100gr Jamaica', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Tangiers 100gr</b>
@@ -904,7 +896,7 @@
                     <button class="add-btn" onclick="add('Tangiers 100gr Cherry limeade', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>Honey Badger 100gr</b>
@@ -914,7 +906,7 @@
                     <button class="add-btn" onclick="add('Honey Badger 100gr BANANA', 50)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>DarkSide 100gr</b>
@@ -924,7 +916,7 @@
                     <button class="add-btn" onclick="add('DarkSide 100gr Tear', 80)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>DarkSide 100gr</b>
@@ -934,7 +926,7 @@
                     <button class="add-btn" onclick="add('DarkSide 100gr Bnpapa', 80)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>DarkSide 100gr</b>
@@ -944,7 +936,7 @@
                     <button class="add-btn" onclick="add('DarkSide 100gr Space ichi', 80)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -954,7 +946,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Milky rice', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -964,7 +956,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Alova', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -974,7 +966,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Blackberry', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -984,7 +976,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Green fizz', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -994,7 +986,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Nord star', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -1004,7 +996,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Made pear', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -1014,7 +1006,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Berry holls', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="tob_strong">
                 <div class="content">
                     <div class="info">
                         <b>MustHave 125gr</b>
@@ -1024,7 +1016,7 @@
                     <button class="add-btn" onclick="add('MustHave 125gr Space ichi', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="other">
                 <div class="content">
                     <div class="info">
                         <b>Oven</b>
@@ -1034,7 +1026,7 @@
                     <button class="add-btn" onclick="add('Oven 1kg', 30)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="other">
                 <div class="content">
                     <div class="info">
                         <b>Crown</b>
@@ -1044,7 +1036,7 @@
                     <button class="add-btn" onclick="add('Crown 1kg', 30)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="other">
                 <div class="content">
                     <div class="info">
                         <b>Gresco</b>
@@ -1934,7 +1926,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 STRAWBERRY GRAPEFRUIT', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -1944,7 +1936,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg BLACKBERRY LEMON', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -1954,7 +1946,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg BLUE RAZZ LEMONADE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -1964,7 +1956,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg BLUEBERRY', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -1974,7 +1966,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg BLUEBERRY SOUR RASPBERRY', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -1984,7 +1976,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg CHERRY', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -1994,7 +1986,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg CHERRY COLA', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2004,7 +1996,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg ELF JACK', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2014,7 +2006,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg ELFBULL ICE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2024,7 +2016,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg GRAPE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2034,7 +2026,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg KIWI PASSION FRUIT GUAVA', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2044,7 +2036,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg PINK LEMONADE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2054,7 +2046,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg RHUBARB SNOOW', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2064,7 +2056,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg SPEARMINT', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2074,7 +2066,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg STRAWBERRY KIWI', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2084,7 +2076,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg STRAWBERRY RASPBERRY CHERRY ICE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2094,7 +2086,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg APPLE PEAR', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2104,7 +2096,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg BLUEBERRY RASPBERRY POMEGRANATE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2114,7 +2106,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg BLUEBERRY ROSE MINT', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2124,7 +2116,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg CHERRY LEMON PEACH', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2134,7 +2126,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg COOL MINT', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2144,7 +2136,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg GRAPE CHERRY', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2154,7 +2146,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg GREEN GRAPE ROSE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2164,7 +2156,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg PINEAPPLE ICE', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2174,7 +2166,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg PINK LEMONADE SODA', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2184,7 +2176,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg SOUR WATERMELON GUMMY', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2194,7 +2186,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg STRAWBERRY BANANA', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2204,7 +2196,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg STRAWBERRY CHERRY LEMON', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2214,7 +2206,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg WATERMELON CHERRY', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>ELFLIQ 30ml-50mg</b>
@@ -2224,7 +2216,7 @@
                     <button class="add-btn" onclick="add('ELFLIQ 30ml-50mg Cuba tobacco', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2234,7 +2226,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Pineapple passion fruit lime', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2244,7 +2236,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Purple candy', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2254,7 +2246,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Perfume lemon', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2264,7 +2256,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Grape ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2274,7 +2266,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Peach ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2284,7 +2276,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Strawberry ice cream', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2294,7 +2286,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Berry', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2304,7 +2296,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Mint ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2314,7 +2306,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Dragon Fruit banana cherry', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2324,7 +2316,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Peach mango watermelon', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2334,7 +2326,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Cherry cola', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2344,7 +2336,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Watermelon bubblegum', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2354,7 +2346,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Kiwi passion fruit guava', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2364,7 +2356,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Watermelon ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2374,7 +2366,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Pomegranate lemonade', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2384,7 +2376,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Strawberry watermelon', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2394,7 +2386,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Lavafire', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2404,7 +2396,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Blue razz lemon', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2414,7 +2406,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Berry peach', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2424,7 +2416,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Blueberry watermelon', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2434,7 +2426,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Sour apple ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2444,7 +2436,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Blue raspberry', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2454,7 +2446,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Blueberry ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2464,7 +2456,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Lemon lime', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>VOZOL 30ml-50mg</b>
@@ -2474,7 +2466,7 @@
                     <button class="add-btn" onclick="add('VOZOL 30ml-50mg Strawberry ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2484,7 +2476,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg BLACKBERRY SOUR RASPBERRY', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2494,7 +2486,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg ENERGY GRAPE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2504,7 +2496,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg ENERGY RASPBERRY', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2514,7 +2506,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg FLIRT', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2524,7 +2516,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg FOREST MIX', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2534,7 +2526,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg PINK LEMONADE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2544,7 +2536,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg STRAWBERRY BLUEBERRY', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2554,7 +2546,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg KIWI PASSIONFRUIT GUAVA', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2564,7 +2556,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg TRIPLE BERRY', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2574,7 +2566,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg TRIPLE RASPBERRY', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2584,7 +2576,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg TRIPLE SOUR APPLE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2594,7 +2586,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg WATERMELON LEMON', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2604,7 +2596,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg BUBBLEGUM', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2614,7 +2606,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg PEACH LEMONADE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2624,7 +2616,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg BANANA APPLE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2634,7 +2626,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg BLACKCURRANT PEACH APPLE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2644,7 +2636,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg MOJITO', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2654,7 +2646,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg BALI', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2664,7 +2656,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg WILD STRAWBERRY KIWI', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2674,7 +2666,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg LEMON MINT', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Black 30ml-60mg</b>
@@ -2684,7 +2676,7 @@
                     <button class="add-btn" onclick="add('Chaser Black 30ml-60mg COMPOTE', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Special 30ml-60mg</b>
@@ -2694,7 +2686,7 @@
                     <button class="add-btn" onclick="add('Chaser Special 30ml-60mg Mystery one', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Special 30ml-60mg</b>
@@ -2704,7 +2696,7 @@
                     <button class="add-btn" onclick="add('Chaser Special 30ml-60mg Cranberry mint', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="liq">
                 <div class="content">
                     <div class="info">
                         <b>Chaser Special 30ml-60mg</b>
@@ -2714,7 +2706,7 @@
                     <button class="add-btn" onclick="add('Chaser Special 30ml-60mg Strawberry jelly', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 mini</b>
@@ -2724,7 +2716,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 mini Black', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 mini</b>
@@ -2734,7 +2726,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 mini Flowing grean', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2744,7 +2736,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GLITTERING BLACK', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2754,7 +2746,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GLITTERING SILVER', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2764,7 +2756,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GLITTERING GOLD', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2774,7 +2766,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GEM GREEN', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2784,7 +2776,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD STORM BLUE', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2794,7 +2786,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD MOONLIT PINK', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2804,7 +2796,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD DAWN PURPLE', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Elf X</b>
@@ -2814,7 +2806,7 @@
                     <button class="add-btn" onclick="add('Elf X Purple', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="pods">
                 <div class="content">
                     <div class="info">
                         <b>Elf X</b>
@@ -2824,7 +2816,7 @@
                     <button class="add-btn" onclick="add('Elf X Purple', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="carts">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso Cartridge</b>
@@ -2834,7 +2826,7 @@
                     <button class="add-btn" onclick="add('Vaporesso Cartridge 3ml 0,8Ω', 25)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="dev">
+            <div class="item" data-cat="carts">
                 <div class="content">
                     <div class="info">
                         <b>Elf X Cartridge</b>
@@ -2844,14 +2836,9 @@
                     <button class="add-btn" onclick="add('Elf X Cartridge 3ml 0,8Ω', 22)">+</button>
                 </div>
             </div></div>
-
-    <button id="orderBtn" onclick="send()">Оформить заказ</button>
-
-    <script>
-        let tg = window.Telegram.WebApp;
-        tg.expand();
-        let cart = [];
-
+        <button id="orderBtn" onclick="send()">Оформить заказ</button>
+        <script>
+        let tg = window.Telegram.WebApp; tg.expand(); let cart = [];
         function filter(cat, btn) {
             document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
             btn.classList.add('active');
@@ -2859,26 +2846,17 @@
                 item.style.display = (cat === 'all' || item.getAttribute('data-cat') === cat) ? 'block' : 'none';
             });
         }
-
         function search(val) {
             let f = val.toLowerCase();
             document.querySelectorAll('.item').forEach(item => {
                 item.style.display = item.innerText.toLowerCase().includes(f) ? 'block' : 'none';
             });
         }
-
         function add(name, price) {
             cart.push({name: name, price: price});
-            let btn = document.getElementById('orderBtn');
-            btn.style.display = 'block';
+            let btn = document.getElementById('orderBtn'); btn.style.display = 'block';
             let total = cart.reduce((s, i) => s + i.price, 0);
             btn.innerText = `Заказать (${cart.length} поз.) на ${total}zl`;
         }
-
-        function send() {
-            tg.sendData(JSON.stringify(cart));
-            tg.close();
-        }
-    </script>
-</body>
-</html>
+        function send() { tg.sendData(JSON.stringify(cart)); tg.close(); }
+        </script></body></html>
