@@ -123,16 +123,23 @@
         function openModal() { document.getElementById('deliveryModal').style.display = 'flex'; }
 
         function finishOrder(method) {
-            let orderData = Object.keys(cart).map(name => ({
-                name: name,
-                count: cart[name],
-                method: method
-            }));
-            
-            console.log("Sending data:", orderData);
-            tg.sendData(JSON.stringify(orderData));
-            tg.close();
-        }
+    // 1. Собираем данные
+    let orderData = Object.keys(cart).map(name => ({
+        name: name,
+        count: cart[name],
+        method: method
+    }));
+    
+    console.log("Отправка данных:", orderData);
+
+    // 2. Проверяем, доступен ли Telegram
+    if (window.Telegram && window.Telegram.WebApp) {
+        window.Telegram.WebApp.sendData(JSON.stringify(orderData));
+        window.Telegram.WebApp.close(); // Закрываем приложение после отправки
+    } else {
+        alert("Ошибка: Telegram WebApp не найден. Откройте через меню бота!");
+    }
+}
     </script>
 </body>
 </html>
