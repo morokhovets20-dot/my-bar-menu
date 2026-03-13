@@ -1,4 +1,39 @@
-<!DOCTYPE html><html><head><meta charset="UTF-8"><meta name="viewport" content="width=device-width, initial-scale=1.0"><script src="https://telegram.org/js/telegram-web-app.js"></script><style>body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 15px; padding-bottom: 100px; }.header { text-align: center; color: #c9a050; margin-bottom: 15px; }.search-box { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #333; background: #1a1a1a; color: white; margin-bottom: 15px; box-sizing: border-box; outline: none; }.categories { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 20px; padding-bottom: 5px; }.cat-btn { background: #1a1a1a; color: #888; border: 1px solid #2a2a2a; padding: 8px 16px; border-radius: 20px; white-space: nowrap; font-size: 14px; }.cat-btn.active { background: #c9a050; color: black; font-weight: bold; }.item { background: #1a1a1a; border-radius: 15px; margin-bottom: 10px; border: 1px solid #2a2a2a; }.content { padding: 15px; display: flex; justify-content: space-between; align-items: center; }.info b { color: #c9a050; font-size: 16px; display: block; }.info span { color: #888; font-size: 13px; display: block; }.price { color: #fff; font-weight: bold; margin-top: 5px; }button.add-btn { background: #c9a050; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }#orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 16px; border-radius: 12px; font-weight: bold; display: none; border: none; color: black; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }</style></head><body><div class="header"><h2>Dym Rzeszów Shop 💨</h2></div><input type="text" class="search-box" placeholder="Поиск товара..." oninput="search(this.value)"><div class="categories"><div class="cat-btn active" onclick="filter('all', this)">Все</div><div class="cat-btn" onclick="filter('tobacco', this)">Табак</div><div class="cat-btn" onclick="filter('ep', this)">Одноразки</div><div class="cat-btn" onclick="filter('liq', this)">Жидкости</div><div class="cat-btn" onclick="filter('dev', this)">Железо</div></div><div id="catalog">
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <script src="https://telegram.org/js/telegram-web-app.js"></script>
+    <style>
+        body { font-family: -apple-system, sans-serif; background: #0f0f0f; color: white; margin: 0; padding: 15px; padding-bottom: 100px; }
+        .header { text-align: center; color: #c9a050; margin-bottom: 15px; }
+        .search-box { width: 100%; padding: 12px; border-radius: 12px; border: 1px solid #333; background: #1a1a1a; color: white; margin-bottom: 15px; box-sizing: border-box; outline: none; }
+        .categories { display: flex; gap: 8px; overflow-x: auto; margin-bottom: 20px; padding-bottom: 10px; scrollbar-width: none; }
+        .categories::-webkit-scrollbar { display: none; }
+        .cat-btn { background: #1a1a1a; color: #888; border: 1px solid #2a2a2a; padding: 10px 18px; border-radius: 20px; white-space: nowrap; font-size: 14px; transition: 0.3s; }
+        .cat-btn.active { background: #c9a050; color: black; font-weight: bold; border-color: #c9a050; }
+        .item { background: #1a1a1a; border-radius: 15px; margin-bottom: 10px; border: 1px solid #2a2a2a; }
+        .content { padding: 15px; display: flex; justify-content: space-between; align-items: center; }
+        .info b { color: #c9a050; font-size: 16px; display: block; }
+        .info span { color: #888; font-size: 13px; display: block; }
+        .price { color: #fff; font-weight: bold; margin-top: 5px; }
+        button.add-btn { background: #c9a050; border: none; padding: 10px 20px; border-radius: 10px; font-weight: bold; cursor: pointer; }
+        #orderBtn { position: fixed; bottom: 20px; left: 5%; width: 90%; background: #c9a050; padding: 16px; border-radius: 15px; font-weight: bold; display: none; border: none; color: black; z-index: 1000; box-shadow: 0 4px 20px rgba(0,0,0,0.5); }
+    </style>
+</head>
+<body>
+    <div class="header"><h2>Dym Rzeszów Shop 💨</h2></div>
+    <input type="text" class="search-box" placeholder="Поиск товара или бренда..." oninput="search(this.value)">
+    
+    <div class="categories">
+        <div class="cat-btn active" onclick="filter('all', this)">Все</div>
+        <div class="cat-btn" onclick="filter('tobacco', this)">Табак</div>
+        <div class="cat-btn" onclick="filter('ep', this)">Одноразки</div>
+        <div class="cat-btn" onclick="filter('liq', this)">Жидкости</div>
+        <div class="cat-btn" onclick="filter('dev', this)">Железо</div>
+    </div>
+
+    <div id="catalog">
             <div class="item" data-cat="tobacco">
                 <div class="content">
                     <div class="info">
@@ -1019,7 +1054,7 @@
                     <button class="add-btn" onclick="add('Gresco 1kg', 30)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1029,7 +1064,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Blueberry orange', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1039,7 +1074,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Blueberry green apple', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1049,7 +1084,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Watermelon coconut water', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1059,7 +1094,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Grape ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1069,7 +1104,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Watermelon kiwi berry ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1079,7 +1114,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Strawberry ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1089,7 +1124,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Blueberry raspberry lemon', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1099,7 +1134,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Blackberry grape ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ri 3000</b>
@@ -1109,7 +1144,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ri 3000 Watermelon ice', 60)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1119,7 +1154,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Orange ice', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1129,7 +1164,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Strawberry banana', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1139,7 +1174,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Mix berries', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1149,7 +1184,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Black ice', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1159,7 +1194,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Peach berry', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1169,7 +1204,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Orange mango watermelon', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1179,7 +1214,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Dragon candy', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1189,7 +1224,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Cactus kiwi', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>HQD Cuvie bar</b>
@@ -1199,7 +1234,7 @@
                     <button class="add-btn" onclick="add('HQD Cuvie bar Red ice', 75)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 23 000</b>
@@ -1209,7 +1244,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 23 000 Green plum sour lime', 110)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 23 000</b>
@@ -1219,7 +1254,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 23 000 Blue razz ice', 110)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 23 000</b>
@@ -1229,7 +1264,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 23 000 Chery cola', 110)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 23 000</b>
@@ -1239,7 +1274,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 23 000 Apple pear', 110)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 23 000</b>
@@ -1249,7 +1284,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 23 000 Raspberry watermelon lemon', 110)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 23 000</b>
@@ -1259,7 +1294,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 23 000 Jasmine raspberry', 110)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Combo 25 000</b>
@@ -1269,7 +1304,7 @@
                     <button class="add-btn" onclick="add('Elfbar Combo 25 000 Watermelon / Strawberry', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Combo 25 000</b>
@@ -1279,7 +1314,7 @@
                     <button class="add-btn" onclick="add('Elfbar Combo 25 000 Apple / Juice peach', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 25 000</b>
@@ -1289,7 +1324,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 25 000 Apple mint', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 25 000</b>
@@ -1299,7 +1334,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 25 000 Grape ice', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 25 000</b>
@@ -1309,7 +1344,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 25 000 Lemon lime', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ice King 30 000</b>
@@ -1319,7 +1354,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ice King 30 000 Banana cake', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ice King 30 000</b>
@@ -1329,7 +1364,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ice King 30 000 Lime cola', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ice King 30 000</b>
@@ -1339,7 +1374,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ice King 30 000 Ribena lychee', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ice King 30 000</b>
@@ -1349,7 +1384,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ice King 30 000 Miami mint', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Ice King 30 000</b>
@@ -1359,7 +1394,7 @@
                     <button class="add-btn" onclick="add('Elfbar Ice King 30 000 Strawberry kiwi ice', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Nic King 30 000</b>
@@ -1369,7 +1404,7 @@
                     <button class="add-btn" onclick="add('Elfbar Nic King 30 000 Blue razz ice', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Nic King 30 000</b>
@@ -1379,7 +1414,7 @@
                     <button class="add-btn" onclick="add('Elfbar Nic King 30 000 Chilly river', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Nic King 30 000</b>
@@ -1389,7 +1424,7 @@
                     <button class="add-btn" onclick="add('Elfbar Nic King 30 000 Ice blue rose', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Nic King 30 000</b>
@@ -1399,7 +1434,7 @@
                     <button class="add-btn" onclick="add('Elfbar Nic King 30 000 Key lime', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Nic King 30 000</b>
@@ -1409,7 +1444,7 @@
                     <button class="add-btn" onclick="add('Elfbar Nic King 30 000 Grapefruit green tea', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Sweet King 30 000</b>
@@ -1419,7 +1454,7 @@
                     <button class="add-btn" onclick="add('Elfbar Sweet King 30 000 Pine needle mint', 120)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1429,7 +1464,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Blueberry ice', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1439,7 +1474,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Blackberry', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1449,7 +1484,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Blueberry raspberry watermelon', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1459,7 +1494,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Cola ice', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1469,7 +1504,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Lychee juice peach', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1479,7 +1514,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Peach ice', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Raya D3 Pro</b>
@@ -1489,7 +1524,7 @@
                     <button class="add-btn" onclick="add('Elfbar Raya D3 Pro Peach lychee blackcurrant', 135)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 33 000</b>
@@ -1499,7 +1534,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 33 000 Blue razz ice', 140)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 33 000</b>
@@ -1509,7 +1544,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 33 000 Pear soda', 140)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 33 000</b>
@@ -1519,7 +1554,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 33 000 Pine needles', 140)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar GH 33 000</b>
@@ -1529,7 +1564,7 @@
                     <button class="add-btn" onclick="add('Elfbar GH 33 000 Apple kiwi ice', 140)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar TRIO 40 000</b>
@@ -1539,7 +1574,7 @@
                     <button class="add-btn" onclick="add('Elfbar TRIO 40 000 Cool menthol', 145)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar TRIO 40 000</b>
@@ -1549,7 +1584,7 @@
                     <button class="add-btn" onclick="add('Elfbar TRIO 40 000 La grape', 145)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar TRIO 40 000</b>
@@ -1559,7 +1594,7 @@
                     <button class="add-btn" onclick="add('Elfbar TRIO 40 000 Peach twist', 145)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar TRIO 40 000</b>
@@ -1569,7 +1604,7 @@
                     <button class="add-btn" onclick="add('Elfbar TRIO 40 000 Sakura grape', 145)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1579,7 +1614,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Cherry burst', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1589,7 +1624,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Black currant pineaple', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1599,7 +1634,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Black grape ice', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1609,7 +1644,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Cactus lime', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1619,7 +1654,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Cucumber lime', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1629,7 +1664,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Milky oolong', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1639,7 +1674,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Mountain mint', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1649,7 +1684,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Sour strawberry dragonfruit', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar Lush King 40 000</b>
@@ -1659,7 +1694,7 @@
                     <button class="add-btn" onclick="add('Elfbar Lush King 40 000 Starfruit grape', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1669,7 +1704,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Aurora berries', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1679,7 +1714,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Black mint', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1689,7 +1724,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Blackberry grape', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1699,7 +1734,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Pineapple pom', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1709,7 +1744,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Sour apple ice', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1719,7 +1754,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Sour fcuking fab', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1729,7 +1764,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Strawberry blend', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1739,7 +1774,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Strawberry kiwi', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1749,7 +1784,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Strawberry raspberry frost', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1759,7 +1794,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Toasted pineapple', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1769,7 +1804,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Triple berry', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1779,7 +1814,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Watermelon peach frost', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC PRO 40 000</b>
@@ -1789,7 +1824,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC PRO 40 000 Winter mint', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1799,7 +1834,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 BLACKBERRY LEMONADE', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1809,7 +1844,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 BLACKCURRANT GRAPE', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1819,7 +1854,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 CHERRY PEACH SODA', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1829,7 +1864,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 DOUBLE MINT', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1839,7 +1874,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 KIWI PINEAPPLE PEACH', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1849,7 +1884,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 LEMON LIME', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1859,7 +1894,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 PEAR SODA', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1869,7 +1904,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 POMEGRANATE RASPBERRY LIME', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1879,7 +1914,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 RED RASPBERRY STRAWBERRY', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -1889,7 +1924,7 @@
                     <button class="add-btn" onclick="add('Elfbar BC 45 000 SOUR APPLE KIWI', 155)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="ep">
                 <div class="content">
                     <div class="info">
                         <b>Elfbar BC 45 000</b>
@@ -2679,7 +2714,7 @@
                     <button class="add-btn" onclick="add('Chaser Special 30ml-60mg Strawberry jelly', 65)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 mini</b>
@@ -2689,7 +2724,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 mini Black', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 mini</b>
@@ -2699,7 +2734,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 mini Flowing grean', 130)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2709,7 +2744,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GLITTERING BLACK', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2719,7 +2754,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GLITTERING SILVER', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2729,7 +2764,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GLITTERING GOLD', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2739,7 +2774,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD GEM GREEN', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2749,7 +2784,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD STORM BLUE', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2759,7 +2794,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD MOONLIT PINK', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso XROS 5 Pro 2 POD</b>
@@ -2769,7 +2804,7 @@
                     <button class="add-btn" onclick="add('Vaporesso XROS 5 Pro 2 POD DAWN PURPLE', 205)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Elf X</b>
@@ -2779,7 +2814,7 @@
                     <button class="add-btn" onclick="add('Elf X Purple', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Elf X</b>
@@ -2789,7 +2824,7 @@
                     <button class="add-btn" onclick="add('Elf X Purple', 90)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Vaporesso Cartridge</b>
@@ -2799,7 +2834,7 @@
                     <button class="add-btn" onclick="add('Vaporesso Cartridge 3ml 0,8Ω', 25)">+</button>
                 </div>
             </div>
-            <div class="item" data-cat="tobacco">
+            <div class="item" data-cat="dev">
                 <div class="content">
                     <div class="info">
                         <b>Elf X Cartridge</b>
@@ -2808,4 +2843,42 @@
                     </div>
                     <button class="add-btn" onclick="add('Elf X Cartridge 3ml 0,8Ω', 22)">+</button>
                 </div>
-            </div></div><button id="orderBtn" onclick="send()">Оформить заказ</button><script>let tg = window.Telegram.WebApp; tg.expand(); let cart = []; function filter(cat, btn) { document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active')); btn.classList.add('active'); document.querySelectorAll('.item').forEach(item => { item.style.display = (cat === 'all' || item.getAttribute('data-cat') === cat) ? 'block' : 'none'; }); } function search(val) { let f = val.toLowerCase(); document.querySelectorAll('.item').forEach(item => { item.style.display = item.innerText.toLowerCase().includes(f) ? 'block' : 'none'; }); } function add(name, price) { cart.push({name: name, price: price}); let btn = document.getElementById('orderBtn'); btn.style.display = 'block'; let total = cart.reduce((s, i) => s + i.price, 0); btn.innerText = `Заказать (${cart.length} поз.) на ${total}zl`; } function send() { tg.sendData(JSON.stringify(cart)); tg.close(); }</script></body></html>
+            </div></div>
+
+    <button id="orderBtn" onclick="send()">Оформить заказ</button>
+
+    <script>
+        let tg = window.Telegram.WebApp;
+        tg.expand();
+        let cart = [];
+
+        function filter(cat, btn) {
+            document.querySelectorAll('.cat-btn').forEach(b => b.classList.remove('active'));
+            btn.classList.add('active');
+            document.querySelectorAll('.item').forEach(item => {
+                item.style.display = (cat === 'all' || item.getAttribute('data-cat') === cat) ? 'block' : 'none';
+            });
+        }
+
+        function search(val) {
+            let f = val.toLowerCase();
+            document.querySelectorAll('.item').forEach(item => {
+                item.style.display = item.innerText.toLowerCase().includes(f) ? 'block' : 'none';
+            });
+        }
+
+        function add(name, price) {
+            cart.push({name: name, price: price});
+            let btn = document.getElementById('orderBtn');
+            btn.style.display = 'block';
+            let total = cart.reduce((s, i) => s + i.price, 0);
+            btn.innerText = `Заказать (${cart.length} поз.) на ${total}zl`;
+        }
+
+        function send() {
+            tg.sendData(JSON.stringify(cart));
+            tg.close();
+        }
+    </script>
+</body>
+</html>
