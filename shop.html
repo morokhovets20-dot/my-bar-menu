@@ -18,15 +18,14 @@
     .tab-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #161b26; display: flex; justify-content: space-around; padding: 12px 0; border-top: 1px solid #2d333b; z-index: 100; }
     .tab { font-size: 10px; text-align: center; color: var(--gray); flex: 1; }
     .tab.active { color: var(--accent); }
-    #order-form { display: none; padding: 15px; background: var(--card); border-radius: 20px 20px 0 0; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; border-top: 2px solid var(--accent); box-shadow: 0 -5px 20px rgba(0,0,0,0.5); }
+    #order-form { display: none; padding: 15px; background: var(--card); border-radius: 20px 20px 0 0; position: fixed; bottom: 0; left: 0; right: 0; z-index: 200; border-top: 2px solid var(--accent); }
     select, input { width: 100%; padding: 12px; margin: 8px 0; border-radius: 8px; border: 1px solid #30363d; background: #0b0f19; color: white; box-sizing: border-box; }
     #main-btn { position: fixed; bottom: 70px; left: 15px; right: 15px; background: #4ade80; color: #000; padding: 16px; border-radius: 14px; text-align: center; font-weight: bold; display: none; z-index: 150; }
-    .info-box { background: rgba(62, 139, 255, 0.1); border: 1px solid var(--accent); padding: 10px; border-radius: 8px; font-size: 12px; color: var(--accent); margin-top: 5px; }
 </style></head><body>
     <div class="header">Dym Rzeszów Shop</div>
     <div id="page-home" class="page-wrapper"><div class="home-grid"><div class="cat-card" onclick="openCategory('Табак')"><div class="cat-icon">💨</div><div class="cat-name">Табак</div></div><div class="cat-card" onclick="openCategory('Уголь')"><div class="cat-icon">💨</div><div class="cat-name">Уголь</div></div><div class="cat-card" onclick="openCategory('Одноразки')"><div class="cat-icon">💨</div><div class="cat-name">Одноразки</div></div><div class="cat-card" onclick="openCategory('Жижи')"><div class="cat-icon">💨</div><div class="cat-name">Жижи</div></div><div class="cat-card" onclick="openCategory('Поды')"><div class="cat-icon">💨</div><div class="cat-name">Поды</div></div><div class="cat-card" onclick="openCategory('Картриджи')"><div class="cat-icon">💨</div><div class="cat-name">Картриджи</div></div></div></div>
     <div id="page-catalog" class="page-wrapper" style="display:none"><div class="page-content" id="cat-page-Табак" style="display:none"><div class="back-link" onclick="showPage('home')">← Назад</div><h2>Табак</h2>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Banana Strawberry">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Banana Strawberry</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Banana Strawberry" onclick="toggleFav('420 Forest Line 100gr Banana Strawberry')">❤</span>
@@ -37,7 +36,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Pink berries">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Pink berries</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Pink berries" onclick="toggleFav('420 Forest Line 100gr Pink berries')">❤</span>
@@ -48,7 +47,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Double melon">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Double melon</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Double melon" onclick="toggleFav('420 Forest Line 100gr Double melon')">❤</span>
@@ -59,7 +58,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Toxic cactus">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Toxic cactus</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Toxic cactus" onclick="toggleFav('420 Forest Line 100gr Toxic cactus')">❤</span>
@@ -70,7 +69,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Waterberry shot">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Waterberry shot</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Waterberry shot" onclick="toggleFav('420 Forest Line 100gr Waterberry shot')">❤</span>
@@ -81,7 +80,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Berry citrus">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Berry citrus</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Berry citrus" onclick="toggleFav('420 Forest Line 100gr Berry citrus')">❤</span>
@@ -92,7 +91,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Captain baldezh">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Captain baldezh</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Captain baldezh" onclick="toggleFav('420 Forest Line 100gr Captain baldezh')">❤</span>
@@ -103,7 +102,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Ice grape berry">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Ice grape berry</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Ice grape berry" onclick="toggleFav('420 Forest Line 100gr Ice grape berry')">❤</span>
@@ -114,7 +113,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Berry zen">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Berry zen</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Berry zen" onclick="toggleFav('420 Forest Line 100gr Berry zen')">❤</span>
@@ -125,7 +124,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Freeze pop">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Freeze pop</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Freeze pop" onclick="toggleFav('420 Forest Line 100gr Freeze pop')">❤</span>
@@ -136,7 +135,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Peach ice pear">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Peach ice pear</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Peach ice pear" onclick="toggleFav('420 Forest Line 100gr Peach ice pear')">❤</span>
@@ -147,7 +146,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Candy mint">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Candy mint</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Candy mint" onclick="toggleFav('420 Forest Line 100gr Candy mint')">❤</span>
@@ -158,7 +157,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Watermelon margarita">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Watermelon margarita</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Watermelon margarita" onclick="toggleFav('420 Forest Line 100gr Watermelon margarita')">❤</span>
@@ -169,7 +168,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Porn star martini">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Porn star martini</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Porn star martini" onclick="toggleFav('420 Forest Line 100gr Porn star martini')">❤</span>
@@ -180,7 +179,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Malibu vibe">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Malibu vibe</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Malibu vibe" onclick="toggleFav('420 Forest Line 100gr Malibu vibe')">❤</span>
@@ -191,7 +190,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Grapefruit melons">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Grapefruit melons</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Grapefruit melons" onclick="toggleFav('420 Forest Line 100gr Grapefruit melons')">❤</span>
@@ -202,7 +201,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Space jam">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Space jam</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Space jam" onclick="toggleFav('420 Forest Line 100gr Space jam')">❤</span>
@@ -213,7 +212,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Red kiwi">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Red kiwi</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Red kiwi" onclick="toggleFav('420 Forest Line 100gr Red kiwi')">❤</span>
@@ -224,7 +223,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Cherry lemonade">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Cherry lemonade</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Cherry lemonade" onclick="toggleFav('420 Forest Line 100gr Cherry lemonade')">❤</span>
@@ -235,7 +234,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Grape beat">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Grape beat</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Grape beat" onclick="toggleFav('420 Forest Line 100gr Grape beat')">❤</span>
@@ -246,7 +245,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Thailand Shot">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Thailand Shot</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Thailand Shot" onclick="toggleFav('420 Forest Line 100gr Thailand Shot')">❤</span>
@@ -257,7 +256,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Forest Line 100gr Love is">
                     <div class="p-info"><b>420 Forest Line 100gr</b><br><small>Love is</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Forest Line 100gr Love is" onclick="toggleFav('420 Forest Line 100gr Love is')">❤</span>
@@ -268,7 +267,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Heven 100gr Double mix">
                     <div class="p-info"><b>Heven 100gr</b><br><small>Double mix</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Heven 100gr Double mix" onclick="toggleFav('Heven 100gr Double mix')">❤</span>
@@ -279,7 +278,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Heven 100gr One pear">
                     <div class="p-info"><b>Heven 100gr</b><br><small>One pear</small><div class="p-price" data-price="70zl">70zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Heven 100gr One pear" onclick="toggleFav('Heven 100gr One pear')">❤</span>
@@ -290,7 +289,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Caribbean rum">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Caribbean rum</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Caribbean rum" onclick="toggleFav('Unity 100gr Caribbean rum')">❤</span>
@@ -301,7 +300,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Coconut shake">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Coconut shake</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Coconut shake" onclick="toggleFav('Unity 100gr Coconut shake')">❤</span>
@@ -312,7 +311,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Wild berries">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Wild berries</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Wild berries" onclick="toggleFav('Unity 100gr Wild berries')">❤</span>
@@ -323,7 +322,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Fresh lemonade">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Fresh lemonade</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Fresh lemonade" onclick="toggleFav('Unity 100gr Fresh lemonade')">❤</span>
@@ -334,7 +333,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Blackcurrant">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Blackcurrant</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Blackcurrant" onclick="toggleFav('Unity 100gr Blackcurrant')">❤</span>
@@ -345,7 +344,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Frutella">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Frutella</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Frutella" onclick="toggleFav('Unity 100gr Frutella')">❤</span>
@@ -356,7 +355,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Pink stoner">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Pink stoner</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Pink stoner" onclick="toggleFav('Unity 100gr Pink stoner')">❤</span>
@@ -367,7 +366,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Bamboo">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Bamboo</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Bamboo" onclick="toggleFav('Unity 100gr Bamboo')">❤</span>
@@ -378,7 +377,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Acid lemon">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Acid lemon</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Acid lemon" onclick="toggleFav('Unity 100gr Acid lemon')">❤</span>
@@ -389,7 +388,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Cola">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Cola</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Cola" onclick="toggleFav('Unity 100gr Cola')">❤</span>
@@ -400,7 +399,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Watermelon ice cream">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Watermelon ice cream</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Watermelon ice cream" onclick="toggleFav('Unity 100gr Watermelon ice cream')">❤</span>
@@ -411,7 +410,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Berry jelly">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Berry jelly</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Berry jelly" onclick="toggleFav('Unity 100gr Berry jelly')">❤</span>
@@ -422,7 +421,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Citrus spritz">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Citrus spritz</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Citrus spritz" onclick="toggleFav('Unity 100gr Citrus spritz')">❤</span>
@@ -433,7 +432,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Lemon mint sorbet">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Lemon mint sorbet</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Lemon mint sorbet" onclick="toggleFav('Unity 100gr Lemon mint sorbet')">❤</span>
@@ -444,7 +443,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Christmas vibe">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Christmas vibe</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Christmas vibe" onclick="toggleFav('Unity 100gr Christmas vibe')">❤</span>
@@ -455,7 +454,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Cranberry mors">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Cranberry mors</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Cranberry mors" onclick="toggleFav('Unity 100gr Cranberry mors')">❤</span>
@@ -466,7 +465,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Turbo">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Turbo</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Turbo" onclick="toggleFav('Unity 100gr Turbo')">❤</span>
@@ -477,7 +476,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Kiwi lemonade">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Kiwi lemonade</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Kiwi lemonade" onclick="toggleFav('Unity 100gr Kiwi lemonade')">❤</span>
@@ -488,7 +487,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Berry lemonade">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Berry lemonade</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Berry lemonade" onclick="toggleFav('Unity 100gr Berry lemonade')">❤</span>
@@ -499,7 +498,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Pineapple candy">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Pineapple candy</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Pineapple candy" onclick="toggleFav('Unity 100gr Pineapple candy')">❤</span>
@@ -510,7 +509,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Tropic rave">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Tropic rave</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Tropic rave" onclick="toggleFav('Unity 100gr Tropic rave')">❤</span>
@@ -521,7 +520,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Slimer">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Slimer</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Slimer" onclick="toggleFav('Unity 100gr Slimer')">❤</span>
@@ -532,7 +531,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Star story">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Star story</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Star story" onclick="toggleFav('Unity 100gr Star story')">❤</span>
@@ -543,7 +542,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Grape jelly">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Grape jelly</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Grape jelly" onclick="toggleFav('Unity 100gr Grape jelly')">❤</span>
@@ -554,7 +553,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Rainbow candy">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Rainbow candy</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Rainbow candy" onclick="toggleFav('Unity 100gr Rainbow candy')">❤</span>
@@ -565,7 +564,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Gravefruit">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Gravefruit</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Gravefruit" onclick="toggleFav('Unity 100gr Gravefruit')">❤</span>
@@ -576,7 +575,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Acid bery">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Acid bery</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Acid bery" onclick="toggleFav('Unity 100gr Acid bery')">❤</span>
@@ -587,7 +586,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Mango kiss">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Mango kiss</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Mango kiss" onclick="toggleFav('Unity 100gr Mango kiss')">❤</span>
@@ -598,7 +597,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Dragon passion">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Dragon passion</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Dragon passion" onclick="toggleFav('Unity 100gr Dragon passion')">❤</span>
@@ -609,7 +608,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Guarana berry">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Guarana berry</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Guarana berry" onclick="toggleFav('Unity 100gr Guarana berry')">❤</span>
@@ -620,7 +619,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Champange papi">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Champange papi</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Champange papi" onclick="toggleFav('Unity 100gr Champange papi')">❤</span>
@@ -631,7 +630,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Strawberry tic-tac">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Strawberry tic-tac</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Strawberry tic-tac" onclick="toggleFav('Unity 100gr Strawberry tic-tac')">❤</span>
@@ -642,7 +641,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Cherry shot">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Cherry shot</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Cherry shot" onclick="toggleFav('Unity 100gr Cherry shot')">❤</span>
@@ -653,7 +652,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Pink grapefruit">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Pink grapefruit</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Pink grapefruit" onclick="toggleFav('Unity 100gr Pink grapefruit')">❤</span>
@@ -664,7 +663,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Pear anormal">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Pear anormal</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Pear anormal" onclick="toggleFav('Unity 100gr Pear anormal')">❤</span>
@@ -675,7 +674,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Space flavor">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Space flavor</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Space flavor" onclick="toggleFav('Unity 100gr Space flavor')">❤</span>
@@ -686,7 +685,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Berry jelly">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Berry jelly</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Berry jelly" onclick="toggleFav('Unity 100gr Berry jelly')">❤</span>
@@ -697,7 +696,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Unity 100gr Salvia">
                     <div class="p-info"><b>Unity 100gr</b><br><small>Salvia</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Unity 100gr Salvia" onclick="toggleFav('Unity 100gr Salvia')">❤</span>
@@ -708,7 +707,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Черничный маффин">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Черничный маффин</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Черничный маффин" onclick="toggleFav('420 Light 100gr Черничный маффин')">❤</span>
@@ -719,7 +718,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Айс яблоко">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Айс яблоко</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Айс яблоко" onclick="toggleFav('420 Light 100gr Айс яблоко')">❤</span>
@@ -730,7 +729,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Рафаело">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Рафаело</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Рафаело" onclick="toggleFav('420 Light 100gr Рафаело')">❤</span>
@@ -741,7 +740,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Ред микс">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Ред микс</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Ред микс" onclick="toggleFav('420 Light 100gr Ред микс')">❤</span>
@@ -752,7 +751,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Клубника базилик">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Клубника базилик</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Клубника базилик" onclick="toggleFav('420 Light 100gr Клубника базилик')">❤</span>
@@ -763,7 +762,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Виноград мята">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Виноград мята</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Виноград мята" onclick="toggleFav('420 Light 100gr Виноград мята')">❤</span>
@@ -774,7 +773,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Грин микс">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Грин микс</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Грин микс" onclick="toggleFav('420 Light 100gr Грин микс')">❤</span>
@@ -785,7 +784,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Вишная барбарис">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Вишная барбарис</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Вишная барбарис" onclick="toggleFav('420 Light 100gr Вишная барбарис')">❤</span>
@@ -796,7 +795,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Яблочные медвежата">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Яблочные медвежата</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Яблочные медвежата" onclick="toggleFav('420 Light 100gr Яблочные медвежата')">❤</span>
@@ -807,7 +806,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Свежие ягоды">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Свежие ягоды</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Свежие ягоды" onclick="toggleFav('420 Light 100gr Свежие ягоды')">❤</span>
@@ -818,7 +817,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Ягодный морс">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Ягодный морс</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Ягодный морс" onclick="toggleFav('420 Light 100gr Ягодный морс')">❤</span>
@@ -829,7 +828,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Розовый лимонад">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Розовый лимонад</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Розовый лимонад" onclick="toggleFav('420 Light 100gr Розовый лимонад')">❤</span>
@@ -840,7 +839,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Цитрусовый лимонад">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Цитрусовый лимонад</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Цитрусовый лимонад" onclick="toggleFav('420 Light 100gr Цитрусовый лимонад')">❤</span>
@@ -851,7 +850,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Фруктовая жвачка">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Фруктовая жвачка</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Фруктовая жвачка" onclick="toggleFav('420 Light 100gr Фруктовая жвачка')">❤</span>
@@ -862,7 +861,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Черника мята">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Черника мята</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Черника мята" onclick="toggleFav('420 Light 100gr Черника мята')">❤</span>
@@ -873,7 +872,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Арбуз лимон">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Арбуз лимон</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Арбуз лимон" onclick="toggleFav('420 Light 100gr Арбуз лимон')">❤</span>
@@ -884,7 +883,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Леди киллер">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Леди киллер</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Леди киллер" onclick="toggleFav('420 Light 100gr Леди киллер')">❤</span>
@@ -895,7 +894,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Лимончело">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Лимончело</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Лимончело" onclick="toggleFav('420 Light 100gr Лимончело')">❤</span>
@@ -906,7 +905,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Енергетик">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Енергетик</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Енергетик" onclick="toggleFav('420 Light 100gr Енергетик')">❤</span>
@@ -917,7 +916,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Айс лимон мята">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Айс лимон мята</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Айс лимон мята" onclick="toggleFav('420 Light 100gr Айс лимон мята')">❤</span>
@@ -928,7 +927,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-420 Light 100gr Ягодная жвачка">
                     <div class="p-info"><b>420 Light 100gr</b><br><small>Ягодная жвачка</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-420 Light 100gr Ягодная жвачка" onclick="toggleFav('420 Light 100gr Ягодная жвачка')">❤</span>
@@ -939,7 +938,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Tangiers 100gr Ginger pear">
                     <div class="p-info"><b>Tangiers 100gr</b><br><small>Ginger pear</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Tangiers 100gr Ginger pear" onclick="toggleFav('Tangiers 100gr Ginger pear')">❤</span>
@@ -950,7 +949,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Tangiers 100gr Strawberry kiwi">
                     <div class="p-info"><b>Tangiers 100gr</b><br><small>Strawberry kiwi</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Tangiers 100gr Strawberry kiwi" onclick="toggleFav('Tangiers 100gr Strawberry kiwi')">❤</span>
@@ -961,7 +960,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Tangiers 100gr Jamaica">
                     <div class="p-info"><b>Tangiers 100gr</b><br><small>Jamaica</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Tangiers 100gr Jamaica" onclick="toggleFav('Tangiers 100gr Jamaica')">❤</span>
@@ -972,7 +971,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Tangiers 100gr Cherry limeade">
                     <div class="p-info"><b>Tangiers 100gr</b><br><small>Cherry limeade</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Tangiers 100gr Cherry limeade" onclick="toggleFav('Tangiers 100gr Cherry limeade')">❤</span>
@@ -983,7 +982,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Honey Badger 100gr BANANA">
                     <div class="p-info"><b>Honey Badger 100gr</b><br><small>BANANA</small><div class="p-price" data-price="50zl">50zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Honey Badger 100gr BANANA" onclick="toggleFav('Honey Badger 100gr BANANA')">❤</span>
@@ -994,7 +993,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-DarkSide 100gr Tear">
                     <div class="p-info"><b>DarkSide 100gr</b><br><small>Tear</small><div class="p-price" data-price="80zl">80zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-DarkSide 100gr Tear" onclick="toggleFav('DarkSide 100gr Tear')">❤</span>
@@ -1005,7 +1004,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-DarkSide 100gr Bnpapa">
                     <div class="p-info"><b>DarkSide 100gr</b><br><small>Bnpapa</small><div class="p-price" data-price="80zl">80zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-DarkSide 100gr Bnpapa" onclick="toggleFav('DarkSide 100gr Bnpapa')">❤</span>
@@ -1016,7 +1015,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-DarkSide 100gr Space ichi">
                     <div class="p-info"><b>DarkSide 100gr</b><br><small>Space ichi</small><div class="p-price" data-price="80zl">80zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-DarkSide 100gr Space ichi" onclick="toggleFav('DarkSide 100gr Space ichi')">❤</span>
@@ -1027,7 +1026,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Milky rice">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Milky rice</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Milky rice" onclick="toggleFav('MustHave 125gr Milky rice')">❤</span>
@@ -1038,7 +1037,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Alova">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Alova</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Alova" onclick="toggleFav('MustHave 125gr Alova')">❤</span>
@@ -1049,7 +1048,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Blackberry">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Blackberry</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Blackberry" onclick="toggleFav('MustHave 125gr Blackberry')">❤</span>
@@ -1060,7 +1059,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Green fizz">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Green fizz</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Green fizz" onclick="toggleFav('MustHave 125gr Green fizz')">❤</span>
@@ -1071,7 +1070,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Nord star">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Nord star</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Nord star" onclick="toggleFav('MustHave 125gr Nord star')">❤</span>
@@ -1082,7 +1081,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Made pear">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Made pear</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Made pear" onclick="toggleFav('MustHave 125gr Made pear')">❤</span>
@@ -1093,7 +1092,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Berry holls">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Berry holls</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Berry holls" onclick="toggleFav('MustHave 125gr Berry holls')">❤</span>
@@ -1104,7 +1103,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-MustHave 125gr Space ichi">
                     <div class="p-info"><b>MustHave 125gr</b><br><small>Space ichi</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-MustHave 125gr Space ichi" onclick="toggleFav('MustHave 125gr Space ichi')">❤</span>
@@ -1115,7 +1114,7 @@
                         </div>
                     </div>
                 </div></div><div class="page-content" id="cat-page-Уголь" style="display:none"><div class="back-link" onclick="showPage('home')">← Назад</div><h2>Уголь</h2>
-                <div class="product-card">
+                <div class="product-card" id="card-Oven 1kg">
                     <div class="p-info"><b>Oven</b><br><small>1kg</small><div class="p-price" data-price="30zl">30zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Oven 1kg" onclick="toggleFav('Oven 1kg')">❤</span>
@@ -1126,7 +1125,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Crown 1kg">
                     <div class="p-info"><b>Crown</b><br><small>1kg</small><div class="p-price" data-price="30zl">30zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Crown 1kg" onclick="toggleFav('Crown 1kg')">❤</span>
@@ -1137,7 +1136,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Gresco 1kg">
                     <div class="p-info"><b>Gresco</b><br><small>1kg</small><div class="p-price" data-price="30zl">30zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Gresco 1kg" onclick="toggleFav('Gresco 1kg')">❤</span>
@@ -1148,7 +1147,7 @@
                         </div>
                     </div>
                 </div></div><div class="page-content" id="cat-page-Одноразки" style="display:none"><div class="back-link" onclick="showPage('home')">← Назад</div><h2>Одноразки</h2>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Blueberry orange">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Blueberry orange</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Blueberry orange" onclick="toggleFav('Elfbar Ri 3000 Blueberry orange')">❤</span>
@@ -1159,7 +1158,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Blueberry green apple">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Blueberry green apple</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Blueberry green apple" onclick="toggleFav('Elfbar Ri 3000 Blueberry green apple')">❤</span>
@@ -1170,7 +1169,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Watermelon coconut water">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Watermelon coconut water</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Watermelon coconut water" onclick="toggleFav('Elfbar Ri 3000 Watermelon coconut water')">❤</span>
@@ -1181,7 +1180,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Grape ice">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Grape ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Grape ice" onclick="toggleFav('Elfbar Ri 3000 Grape ice')">❤</span>
@@ -1192,7 +1191,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Watermelon kiwi berry ice">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Watermelon kiwi berry ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Watermelon kiwi berry ice" onclick="toggleFav('Elfbar Ri 3000 Watermelon kiwi berry ice')">❤</span>
@@ -1203,7 +1202,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Strawberry ice">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Strawberry ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Strawberry ice" onclick="toggleFav('Elfbar Ri 3000 Strawberry ice')">❤</span>
@@ -1214,7 +1213,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Blueberry raspberry lemon">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Blueberry raspberry lemon</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Blueberry raspberry lemon" onclick="toggleFav('Elfbar Ri 3000 Blueberry raspberry lemon')">❤</span>
@@ -1225,7 +1224,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Blackberry grape ice">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Blackberry grape ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Blackberry grape ice" onclick="toggleFav('Elfbar Ri 3000 Blackberry grape ice')">❤</span>
@@ -1236,7 +1235,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ri 3000 Watermelon ice">
                     <div class="p-info"><b>Elfbar Ri 3000</b><br><small>Watermelon ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ri 3000 Watermelon ice" onclick="toggleFav('Elfbar Ri 3000 Watermelon ice')">❤</span>
@@ -1247,7 +1246,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Orange ice">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Orange ice</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Orange ice" onclick="toggleFav('HQD Cuvie bar Orange ice')">❤</span>
@@ -1258,7 +1257,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Strawberry banana">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Strawberry banana</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Strawberry banana" onclick="toggleFav('HQD Cuvie bar Strawberry banana')">❤</span>
@@ -1269,7 +1268,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Mix berries">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Mix berries</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Mix berries" onclick="toggleFav('HQD Cuvie bar Mix berries')">❤</span>
@@ -1280,7 +1279,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Black ice">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Black ice</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Black ice" onclick="toggleFav('HQD Cuvie bar Black ice')">❤</span>
@@ -1291,7 +1290,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Peach berry">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Peach berry</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Peach berry" onclick="toggleFav('HQD Cuvie bar Peach berry')">❤</span>
@@ -1302,7 +1301,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Orange mango watermelon">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Orange mango watermelon</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Orange mango watermelon" onclick="toggleFav('HQD Cuvie bar Orange mango watermelon')">❤</span>
@@ -1313,7 +1312,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Dragon candy">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Dragon candy</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Dragon candy" onclick="toggleFav('HQD Cuvie bar Dragon candy')">❤</span>
@@ -1324,7 +1323,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Cactus kiwi">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Cactus kiwi</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Cactus kiwi" onclick="toggleFav('HQD Cuvie bar Cactus kiwi')">❤</span>
@@ -1335,7 +1334,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-HQD Cuvie bar Red ice">
                     <div class="p-info"><b>HQD Cuvie bar</b><br><small>Red ice</small><div class="p-price" data-price="75zl">75zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-HQD Cuvie bar Red ice" onclick="toggleFav('HQD Cuvie bar Red ice')">❤</span>
@@ -1346,7 +1345,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 23 000 Green plum sour lime">
                     <div class="p-info"><b>Elfbar GH 23 000</b><br><small>Green plum sour lime</small><div class="p-price" data-price="110zl">110zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 23 000 Green plum sour lime" onclick="toggleFav('Elfbar GH 23 000 Green plum sour lime')">❤</span>
@@ -1357,7 +1356,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 23 000 Blue razz ice">
                     <div class="p-info"><b>Elfbar GH 23 000</b><br><small>Blue razz ice</small><div class="p-price" data-price="110zl">110zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 23 000 Blue razz ice" onclick="toggleFav('Elfbar GH 23 000 Blue razz ice')">❤</span>
@@ -1368,7 +1367,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 23 000 Chery cola">
                     <div class="p-info"><b>Elfbar GH 23 000</b><br><small>Chery cola</small><div class="p-price" data-price="110zl">110zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 23 000 Chery cola" onclick="toggleFav('Elfbar GH 23 000 Chery cola')">❤</span>
@@ -1379,7 +1378,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 23 000 Apple pear">
                     <div class="p-info"><b>Elfbar GH 23 000</b><br><small>Apple pear</small><div class="p-price" data-price="110zl">110zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 23 000 Apple pear" onclick="toggleFav('Elfbar GH 23 000 Apple pear')">❤</span>
@@ -1390,7 +1389,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 23 000 Raspberry watermelon lemon">
                     <div class="p-info"><b>Elfbar GH 23 000</b><br><small>Raspberry watermelon lemon</small><div class="p-price" data-price="110zl">110zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 23 000 Raspberry watermelon lemon" onclick="toggleFav('Elfbar GH 23 000 Raspberry watermelon lemon')">❤</span>
@@ -1401,7 +1400,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 23 000 Jasmine raspberry">
                     <div class="p-info"><b>Elfbar GH 23 000</b><br><small>Jasmine raspberry</small><div class="p-price" data-price="110zl">110zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 23 000 Jasmine raspberry" onclick="toggleFav('Elfbar GH 23 000 Jasmine raspberry')">❤</span>
@@ -1412,7 +1411,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Combo 25 000 Watermelon / Strawberry">
                     <div class="p-info"><b>Elfbar Combo 25 000</b><br><small>Watermelon / Strawberry</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Combo 25 000 Watermelon / Strawberry" onclick="toggleFav('Elfbar Combo 25 000 Watermelon / Strawberry')">❤</span>
@@ -1423,7 +1422,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Combo 25 000 Apple / Juice peach">
                     <div class="p-info"><b>Elfbar Combo 25 000</b><br><small>Apple / Juice peach</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Combo 25 000 Apple / Juice peach" onclick="toggleFav('Elfbar Combo 25 000 Apple / Juice peach')">❤</span>
@@ -1434,7 +1433,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 25 000 Apple mint">
                     <div class="p-info"><b>Elfbar Raya D3 25 000</b><br><small>Apple mint</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 25 000 Apple mint" onclick="toggleFav('Elfbar Raya D3 25 000 Apple mint')">❤</span>
@@ -1445,7 +1444,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 25 000 Grape ice">
                     <div class="p-info"><b>Elfbar Raya D3 25 000</b><br><small>Grape ice</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 25 000 Grape ice" onclick="toggleFav('Elfbar Raya D3 25 000 Grape ice')">❤</span>
@@ -1456,7 +1455,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 25 000 Lemon lime">
                     <div class="p-info"><b>Elfbar Raya D3 25 000</b><br><small>Lemon lime</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 25 000 Lemon lime" onclick="toggleFav('Elfbar Raya D3 25 000 Lemon lime')">❤</span>
@@ -1467,7 +1466,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ice King 30 000 Banana cake">
                     <div class="p-info"><b>Elfbar Ice King 30 000</b><br><small>Banana cake</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ice King 30 000 Banana cake" onclick="toggleFav('Elfbar Ice King 30 000 Banana cake')">❤</span>
@@ -1478,7 +1477,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ice King 30 000 Lime cola">
                     <div class="p-info"><b>Elfbar Ice King 30 000</b><br><small>Lime cola</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ice King 30 000 Lime cola" onclick="toggleFav('Elfbar Ice King 30 000 Lime cola')">❤</span>
@@ -1489,7 +1488,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ice King 30 000 Ribena lychee">
                     <div class="p-info"><b>Elfbar Ice King 30 000</b><br><small>Ribena lychee</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ice King 30 000 Ribena lychee" onclick="toggleFav('Elfbar Ice King 30 000 Ribena lychee')">❤</span>
@@ -1500,7 +1499,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ice King 30 000 Miami mint">
                     <div class="p-info"><b>Elfbar Ice King 30 000</b><br><small>Miami mint</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ice King 30 000 Miami mint" onclick="toggleFav('Elfbar Ice King 30 000 Miami mint')">❤</span>
@@ -1511,7 +1510,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Ice King 30 000 Strawberry kiwi ice">
                     <div class="p-info"><b>Elfbar Ice King 30 000</b><br><small>Strawberry kiwi ice</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Ice King 30 000 Strawberry kiwi ice" onclick="toggleFav('Elfbar Ice King 30 000 Strawberry kiwi ice')">❤</span>
@@ -1522,7 +1521,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Nic King 30 000 Blue razz ice">
                     <div class="p-info"><b>Elfbar Nic King 30 000</b><br><small>Blue razz ice</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Nic King 30 000 Blue razz ice" onclick="toggleFav('Elfbar Nic King 30 000 Blue razz ice')">❤</span>
@@ -1533,7 +1532,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Nic King 30 000 Chilly river">
                     <div class="p-info"><b>Elfbar Nic King 30 000</b><br><small>Chilly river</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Nic King 30 000 Chilly river" onclick="toggleFav('Elfbar Nic King 30 000 Chilly river')">❤</span>
@@ -1544,7 +1543,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Nic King 30 000 Ice blue rose">
                     <div class="p-info"><b>Elfbar Nic King 30 000</b><br><small>Ice blue rose</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Nic King 30 000 Ice blue rose" onclick="toggleFav('Elfbar Nic King 30 000 Ice blue rose')">❤</span>
@@ -1555,7 +1554,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Nic King 30 000 Key lime">
                     <div class="p-info"><b>Elfbar Nic King 30 000</b><br><small>Key lime</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Nic King 30 000 Key lime" onclick="toggleFav('Elfbar Nic King 30 000 Key lime')">❤</span>
@@ -1566,7 +1565,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Nic King 30 000 Grapefruit green tea">
                     <div class="p-info"><b>Elfbar Nic King 30 000</b><br><small>Grapefruit green tea</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Nic King 30 000 Grapefruit green tea" onclick="toggleFav('Elfbar Nic King 30 000 Grapefruit green tea')">❤</span>
@@ -1577,7 +1576,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Sweet King 30 000 Pine needle mint">
                     <div class="p-info"><b>Elfbar Sweet King 30 000</b><br><small>Pine needle mint</small><div class="p-price" data-price="120zl">120zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Sweet King 30 000 Pine needle mint" onclick="toggleFav('Elfbar Sweet King 30 000 Pine needle mint')">❤</span>
@@ -1588,7 +1587,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Blueberry ice">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Blueberry ice</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Blueberry ice" onclick="toggleFav('Elfbar Raya D3 Pro Blueberry ice')">❤</span>
@@ -1599,7 +1598,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Blackberry">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Blackberry</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Blackberry" onclick="toggleFav('Elfbar Raya D3 Pro Blackberry')">❤</span>
@@ -1610,7 +1609,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Blueberry raspberry watermelon">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Blueberry raspberry watermelon</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Blueberry raspberry watermelon" onclick="toggleFav('Elfbar Raya D3 Pro Blueberry raspberry watermelon')">❤</span>
@@ -1621,7 +1620,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Cola ice">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Cola ice</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Cola ice" onclick="toggleFav('Elfbar Raya D3 Pro Cola ice')">❤</span>
@@ -1632,7 +1631,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Lychee juice peach">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Lychee juice peach</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Lychee juice peach" onclick="toggleFav('Elfbar Raya D3 Pro Lychee juice peach')">❤</span>
@@ -1643,7 +1642,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Peach ice">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Peach ice</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Peach ice" onclick="toggleFav('Elfbar Raya D3 Pro Peach ice')">❤</span>
@@ -1654,7 +1653,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Raya D3 Pro Peach lychee blackcurrant">
                     <div class="p-info"><b>Elfbar Raya D3 Pro</b><br><small>Peach lychee blackcurrant</small><div class="p-price" data-price="135zl">135zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Raya D3 Pro Peach lychee blackcurrant" onclick="toggleFav('Elfbar Raya D3 Pro Peach lychee blackcurrant')">❤</span>
@@ -1665,7 +1664,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 33 000 Blue razz ice">
                     <div class="p-info"><b>Elfbar GH 33 000</b><br><small>Blue razz ice</small><div class="p-price" data-price="140zl">140zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 33 000 Blue razz ice" onclick="toggleFav('Elfbar GH 33 000 Blue razz ice')">❤</span>
@@ -1676,7 +1675,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 33 000 Pear soda">
                     <div class="p-info"><b>Elfbar GH 33 000</b><br><small>Pear soda</small><div class="p-price" data-price="140zl">140zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 33 000 Pear soda" onclick="toggleFav('Elfbar GH 33 000 Pear soda')">❤</span>
@@ -1687,7 +1686,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 33 000 Pine needles">
                     <div class="p-info"><b>Elfbar GH 33 000</b><br><small>Pine needles</small><div class="p-price" data-price="140zl">140zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 33 000 Pine needles" onclick="toggleFav('Elfbar GH 33 000 Pine needles')">❤</span>
@@ -1698,7 +1697,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar GH 33 000 Apple kiwi ice">
                     <div class="p-info"><b>Elfbar GH 33 000</b><br><small>Apple kiwi ice</small><div class="p-price" data-price="140zl">140zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar GH 33 000 Apple kiwi ice" onclick="toggleFav('Elfbar GH 33 000 Apple kiwi ice')">❤</span>
@@ -1709,7 +1708,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar TRIO 40 000 Cool menthol">
                     <div class="p-info"><b>Elfbar TRIO 40 000</b><br><small>Cool menthol</small><div class="p-price" data-price="145zl">145zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar TRIO 40 000 Cool menthol" onclick="toggleFav('Elfbar TRIO 40 000 Cool menthol')">❤</span>
@@ -1720,7 +1719,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar TRIO 40 000 La grape">
                     <div class="p-info"><b>Elfbar TRIO 40 000</b><br><small>La grape</small><div class="p-price" data-price="145zl">145zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar TRIO 40 000 La grape" onclick="toggleFav('Elfbar TRIO 40 000 La grape')">❤</span>
@@ -1731,7 +1730,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar TRIO 40 000 Peach twist">
                     <div class="p-info"><b>Elfbar TRIO 40 000</b><br><small>Peach twist</small><div class="p-price" data-price="145zl">145zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar TRIO 40 000 Peach twist" onclick="toggleFav('Elfbar TRIO 40 000 Peach twist')">❤</span>
@@ -1742,7 +1741,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar TRIO 40 000 Sakura grape">
                     <div class="p-info"><b>Elfbar TRIO 40 000</b><br><small>Sakura grape</small><div class="p-price" data-price="145zl">145zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar TRIO 40 000 Sakura grape" onclick="toggleFav('Elfbar TRIO 40 000 Sakura grape')">❤</span>
@@ -1753,7 +1752,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Cherry burst">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Cherry burst</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Cherry burst" onclick="toggleFav('Elfbar Lush King 40 000 Cherry burst')">❤</span>
@@ -1764,7 +1763,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Black currant pineaple">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Black currant pineaple</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Black currant pineaple" onclick="toggleFav('Elfbar Lush King 40 000 Black currant pineaple')">❤</span>
@@ -1775,7 +1774,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Black grape ice">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Black grape ice</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Black grape ice" onclick="toggleFav('Elfbar Lush King 40 000 Black grape ice')">❤</span>
@@ -1786,7 +1785,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Cactus lime">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Cactus lime</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Cactus lime" onclick="toggleFav('Elfbar Lush King 40 000 Cactus lime')">❤</span>
@@ -1797,7 +1796,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Cucumber lime">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Cucumber lime</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Cucumber lime" onclick="toggleFav('Elfbar Lush King 40 000 Cucumber lime')">❤</span>
@@ -1808,7 +1807,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Milky oolong">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Milky oolong</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Milky oolong" onclick="toggleFav('Elfbar Lush King 40 000 Milky oolong')">❤</span>
@@ -1819,7 +1818,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Mountain mint">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Mountain mint</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Mountain mint" onclick="toggleFav('Elfbar Lush King 40 000 Mountain mint')">❤</span>
@@ -1830,7 +1829,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Sour strawberry dragonfruit">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Sour strawberry dragonfruit</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Sour strawberry dragonfruit" onclick="toggleFav('Elfbar Lush King 40 000 Sour strawberry dragonfruit')">❤</span>
@@ -1841,7 +1840,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar Lush King 40 000 Starfruit grape">
                     <div class="p-info"><b>Elfbar Lush King 40 000</b><br><small>Starfruit grape</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar Lush King 40 000 Starfruit grape" onclick="toggleFav('Elfbar Lush King 40 000 Starfruit grape')">❤</span>
@@ -1852,7 +1851,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Aurora berries">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Aurora berries</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Aurora berries" onclick="toggleFav('Elfbar BC PRO 40 000 Aurora berries')">❤</span>
@@ -1863,7 +1862,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Black mint">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Black mint</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Black mint" onclick="toggleFav('Elfbar BC PRO 40 000 Black mint')">❤</span>
@@ -1874,7 +1873,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Blackberry grape">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Blackberry grape</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Blackberry grape" onclick="toggleFav('Elfbar BC PRO 40 000 Blackberry grape')">❤</span>
@@ -1885,7 +1884,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Pineapple pom">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Pineapple pom</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Pineapple pom" onclick="toggleFav('Elfbar BC PRO 40 000 Pineapple pom')">❤</span>
@@ -1896,7 +1895,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Sour apple ice">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Sour apple ice</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Sour apple ice" onclick="toggleFav('Elfbar BC PRO 40 000 Sour apple ice')">❤</span>
@@ -1907,7 +1906,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Sour fcuking fab">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Sour fcuking fab</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Sour fcuking fab" onclick="toggleFav('Elfbar BC PRO 40 000 Sour fcuking fab')">❤</span>
@@ -1918,7 +1917,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Strawberry blend">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Strawberry blend</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Strawberry blend" onclick="toggleFav('Elfbar BC PRO 40 000 Strawberry blend')">❤</span>
@@ -1929,7 +1928,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Strawberry kiwi">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Strawberry kiwi</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Strawberry kiwi" onclick="toggleFav('Elfbar BC PRO 40 000 Strawberry kiwi')">❤</span>
@@ -1940,7 +1939,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Strawberry raspberry frost">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Strawberry raspberry frost</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Strawberry raspberry frost" onclick="toggleFav('Elfbar BC PRO 40 000 Strawberry raspberry frost')">❤</span>
@@ -1951,7 +1950,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Toasted pineapple">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Toasted pineapple</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Toasted pineapple" onclick="toggleFav('Elfbar BC PRO 40 000 Toasted pineapple')">❤</span>
@@ -1962,7 +1961,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Triple berry">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Triple berry</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Triple berry" onclick="toggleFav('Elfbar BC PRO 40 000 Triple berry')">❤</span>
@@ -1973,7 +1972,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Watermelon peach frost">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Watermelon peach frost</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Watermelon peach frost" onclick="toggleFav('Elfbar BC PRO 40 000 Watermelon peach frost')">❤</span>
@@ -1984,7 +1983,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC PRO 40 000 Winter mint">
                     <div class="p-info"><b>Elfbar BC PRO 40 000</b><br><small>Winter mint</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC PRO 40 000 Winter mint" onclick="toggleFav('Elfbar BC PRO 40 000 Winter mint')">❤</span>
@@ -1995,7 +1994,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 BLACKBERRY LEMONADE">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>BLACKBERRY LEMONADE</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 BLACKBERRY LEMONADE" onclick="toggleFav('Elfbar BC 45 000 BLACKBERRY LEMONADE')">❤</span>
@@ -2006,7 +2005,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 BLACKCURRANT GRAPE">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>BLACKCURRANT GRAPE</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 BLACKCURRANT GRAPE" onclick="toggleFav('Elfbar BC 45 000 BLACKCURRANT GRAPE')">❤</span>
@@ -2017,7 +2016,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 CHERRY PEACH SODA">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>CHERRY PEACH SODA</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 CHERRY PEACH SODA" onclick="toggleFav('Elfbar BC 45 000 CHERRY PEACH SODA')">❤</span>
@@ -2028,7 +2027,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 DOUBLE MINT">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>DOUBLE MINT</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 DOUBLE MINT" onclick="toggleFav('Elfbar BC 45 000 DOUBLE MINT')">❤</span>
@@ -2039,7 +2038,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 KIWI PINEAPPLE PEACH">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>KIWI PINEAPPLE PEACH</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 KIWI PINEAPPLE PEACH" onclick="toggleFav('Elfbar BC 45 000 KIWI PINEAPPLE PEACH')">❤</span>
@@ -2050,7 +2049,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 LEMON LIME">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>LEMON LIME</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 LEMON LIME" onclick="toggleFav('Elfbar BC 45 000 LEMON LIME')">❤</span>
@@ -2061,7 +2060,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 PEAR SODA">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>PEAR SODA</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 PEAR SODA" onclick="toggleFav('Elfbar BC 45 000 PEAR SODA')">❤</span>
@@ -2072,7 +2071,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 POMEGRANATE RASPBERRY LIME">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>POMEGRANATE RASPBERRY LIME</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 POMEGRANATE RASPBERRY LIME" onclick="toggleFav('Elfbar BC 45 000 POMEGRANATE RASPBERRY LIME')">❤</span>
@@ -2083,7 +2082,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 RED RASPBERRY STRAWBERRY">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>RED RASPBERRY STRAWBERRY</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 RED RASPBERRY STRAWBERRY" onclick="toggleFav('Elfbar BC 45 000 RED RASPBERRY STRAWBERRY')">❤</span>
@@ -2094,7 +2093,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 SOUR APPLE KIWI">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>SOUR APPLE KIWI</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 SOUR APPLE KIWI" onclick="toggleFav('Elfbar BC 45 000 SOUR APPLE KIWI')">❤</span>
@@ -2105,7 +2104,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elfbar BC 45 000 STRAWBERRY GRAPEFRUIT">
                     <div class="p-info"><b>Elfbar BC 45 000</b><br><small>STRAWBERRY GRAPEFRUIT</small><div class="p-price" data-price="155zl">155zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elfbar BC 45 000 STRAWBERRY GRAPEFRUIT" onclick="toggleFav('Elfbar BC 45 000 STRAWBERRY GRAPEFRUIT')">❤</span>
@@ -2116,7 +2115,7 @@
                         </div>
                     </div>
                 </div></div><div class="page-content" id="cat-page-Жижи" style="display:none"><div class="back-link" onclick="showPage('home')">← Назад</div><h2>Жижи</h2>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg BLACKBERRY LEMON">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>BLACKBERRY LEMON</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg BLACKBERRY LEMON" onclick="toggleFav('ELFLIQ 30ml-50mg BLACKBERRY LEMON')">❤</span>
@@ -2127,7 +2126,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg BLUE RAZZ LEMONADE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>BLUE RAZZ LEMONADE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg BLUE RAZZ LEMONADE" onclick="toggleFav('ELFLIQ 30ml-50mg BLUE RAZZ LEMONADE')">❤</span>
@@ -2138,7 +2137,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg BLUEBERRY">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>BLUEBERRY</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg BLUEBERRY" onclick="toggleFav('ELFLIQ 30ml-50mg BLUEBERRY')">❤</span>
@@ -2149,7 +2148,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg BLUEBERRY SOUR RASPBERRY">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>BLUEBERRY SOUR RASPBERRY</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg BLUEBERRY SOUR RASPBERRY" onclick="toggleFav('ELFLIQ 30ml-50mg BLUEBERRY SOUR RASPBERRY')">❤</span>
@@ -2160,7 +2159,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg CHERRY">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>CHERRY</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg CHERRY" onclick="toggleFav('ELFLIQ 30ml-50mg CHERRY')">❤</span>
@@ -2171,7 +2170,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg CHERRY COLA">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>CHERRY COLA</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg CHERRY COLA" onclick="toggleFav('ELFLIQ 30ml-50mg CHERRY COLA')">❤</span>
@@ -2182,7 +2181,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg ELF JACK">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>ELF JACK</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg ELF JACK" onclick="toggleFav('ELFLIQ 30ml-50mg ELF JACK')">❤</span>
@@ -2193,7 +2192,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg ELFBULL ICE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>ELFBULL ICE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg ELFBULL ICE" onclick="toggleFav('ELFLIQ 30ml-50mg ELFBULL ICE')">❤</span>
@@ -2204,7 +2203,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg GRAPE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>GRAPE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg GRAPE" onclick="toggleFav('ELFLIQ 30ml-50mg GRAPE')">❤</span>
@@ -2215,7 +2214,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg KIWI PASSION FRUIT GUAVA">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>KIWI PASSION FRUIT GUAVA</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg KIWI PASSION FRUIT GUAVA" onclick="toggleFav('ELFLIQ 30ml-50mg KIWI PASSION FRUIT GUAVA')">❤</span>
@@ -2226,7 +2225,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg PINK LEMONADE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>PINK LEMONADE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg PINK LEMONADE" onclick="toggleFav('ELFLIQ 30ml-50mg PINK LEMONADE')">❤</span>
@@ -2237,7 +2236,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg RHUBARB SNOOW">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>RHUBARB SNOOW</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg RHUBARB SNOOW" onclick="toggleFav('ELFLIQ 30ml-50mg RHUBARB SNOOW')">❤</span>
@@ -2248,7 +2247,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg SPEARMINT">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>SPEARMINT</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg SPEARMINT" onclick="toggleFav('ELFLIQ 30ml-50mg SPEARMINT')">❤</span>
@@ -2259,7 +2258,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg STRAWBERRY KIWI">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>STRAWBERRY KIWI</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg STRAWBERRY KIWI" onclick="toggleFav('ELFLIQ 30ml-50mg STRAWBERRY KIWI')">❤</span>
@@ -2270,7 +2269,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg STRAWBERRY RASPBERRY CHERRY ICE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>STRAWBERRY RASPBERRY CHERRY ICE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg STRAWBERRY RASPBERRY CHERRY ICE" onclick="toggleFav('ELFLIQ 30ml-50mg STRAWBERRY RASPBERRY CHERRY ICE')">❤</span>
@@ -2281,7 +2280,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg APPLE PEAR">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>APPLE PEAR</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg APPLE PEAR" onclick="toggleFav('ELFLIQ 30ml-50mg APPLE PEAR')">❤</span>
@@ -2292,7 +2291,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg BLUEBERRY RASPBERRY POMEGRANATE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>BLUEBERRY RASPBERRY POMEGRANATE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg BLUEBERRY RASPBERRY POMEGRANATE" onclick="toggleFav('ELFLIQ 30ml-50mg BLUEBERRY RASPBERRY POMEGRANATE')">❤</span>
@@ -2303,7 +2302,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg BLUEBERRY ROSE MINT">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>BLUEBERRY ROSE MINT</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg BLUEBERRY ROSE MINT" onclick="toggleFav('ELFLIQ 30ml-50mg BLUEBERRY ROSE MINT')">❤</span>
@@ -2314,7 +2313,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg CHERRY LEMON PEACH">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>CHERRY LEMON PEACH</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg CHERRY LEMON PEACH" onclick="toggleFav('ELFLIQ 30ml-50mg CHERRY LEMON PEACH')">❤</span>
@@ -2325,7 +2324,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg COOL MINT">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>COOL MINT</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg COOL MINT" onclick="toggleFav('ELFLIQ 30ml-50mg COOL MINT')">❤</span>
@@ -2336,7 +2335,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg GRAPE CHERRY">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>GRAPE CHERRY</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg GRAPE CHERRY" onclick="toggleFav('ELFLIQ 30ml-50mg GRAPE CHERRY')">❤</span>
@@ -2347,7 +2346,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg GREEN GRAPE ROSE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>GREEN GRAPE ROSE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg GREEN GRAPE ROSE" onclick="toggleFav('ELFLIQ 30ml-50mg GREEN GRAPE ROSE')">❤</span>
@@ -2358,7 +2357,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg PINEAPPLE ICE">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>PINEAPPLE ICE</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg PINEAPPLE ICE" onclick="toggleFav('ELFLIQ 30ml-50mg PINEAPPLE ICE')">❤</span>
@@ -2369,7 +2368,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg PINK LEMONADE SODA">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>PINK LEMONADE SODA</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg PINK LEMONADE SODA" onclick="toggleFav('ELFLIQ 30ml-50mg PINK LEMONADE SODA')">❤</span>
@@ -2380,7 +2379,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg SOUR WATERMELON GUMMY">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>SOUR WATERMELON GUMMY</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg SOUR WATERMELON GUMMY" onclick="toggleFav('ELFLIQ 30ml-50mg SOUR WATERMELON GUMMY')">❤</span>
@@ -2391,7 +2390,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg STRAWBERRY BANANA">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>STRAWBERRY BANANA</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg STRAWBERRY BANANA" onclick="toggleFav('ELFLIQ 30ml-50mg STRAWBERRY BANANA')">❤</span>
@@ -2402,7 +2401,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg STRAWBERRY CHERRY LEMON">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>STRAWBERRY CHERRY LEMON</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg STRAWBERRY CHERRY LEMON" onclick="toggleFav('ELFLIQ 30ml-50mg STRAWBERRY CHERRY LEMON')">❤</span>
@@ -2413,7 +2412,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg WATERMELON CHERRY">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>WATERMELON CHERRY</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg WATERMELON CHERRY" onclick="toggleFav('ELFLIQ 30ml-50mg WATERMELON CHERRY')">❤</span>
@@ -2424,7 +2423,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-ELFLIQ 30ml-50mg Cuba tobacco">
                     <div class="p-info"><b>ELFLIQ 30ml-50mg</b><br><small>Cuba tobacco</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-ELFLIQ 30ml-50mg Cuba tobacco" onclick="toggleFav('ELFLIQ 30ml-50mg Cuba tobacco')">❤</span>
@@ -2435,7 +2434,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Pineapple passion fruit lime">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Pineapple passion fruit lime</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Pineapple passion fruit lime" onclick="toggleFav('VOZOL 30ml-50mg Pineapple passion fruit lime')">❤</span>
@@ -2446,7 +2445,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Purple candy">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Purple candy</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Purple candy" onclick="toggleFav('VOZOL 30ml-50mg Purple candy')">❤</span>
@@ -2457,7 +2456,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Perfume lemon">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Perfume lemon</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Perfume lemon" onclick="toggleFav('VOZOL 30ml-50mg Perfume lemon')">❤</span>
@@ -2468,7 +2467,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Grape ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Grape ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Grape ice" onclick="toggleFav('VOZOL 30ml-50mg Grape ice')">❤</span>
@@ -2479,7 +2478,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Peach ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Peach ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Peach ice" onclick="toggleFav('VOZOL 30ml-50mg Peach ice')">❤</span>
@@ -2490,7 +2489,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Strawberry ice cream">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Strawberry ice cream</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Strawberry ice cream" onclick="toggleFav('VOZOL 30ml-50mg Strawberry ice cream')">❤</span>
@@ -2501,7 +2500,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Berry">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Berry</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Berry" onclick="toggleFav('VOZOL 30ml-50mg Berry')">❤</span>
@@ -2512,7 +2511,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Mint ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Mint ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Mint ice" onclick="toggleFav('VOZOL 30ml-50mg Mint ice')">❤</span>
@@ -2523,7 +2522,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Dragon Fruit banana cherry">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Dragon Fruit banana cherry</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Dragon Fruit banana cherry" onclick="toggleFav('VOZOL 30ml-50mg Dragon Fruit banana cherry')">❤</span>
@@ -2534,7 +2533,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Peach mango watermelon">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Peach mango watermelon</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Peach mango watermelon" onclick="toggleFav('VOZOL 30ml-50mg Peach mango watermelon')">❤</span>
@@ -2545,7 +2544,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Cherry cola">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Cherry cola</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Cherry cola" onclick="toggleFav('VOZOL 30ml-50mg Cherry cola')">❤</span>
@@ -2556,7 +2555,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Watermelon bubblegum">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Watermelon bubblegum</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Watermelon bubblegum" onclick="toggleFav('VOZOL 30ml-50mg Watermelon bubblegum')">❤</span>
@@ -2567,7 +2566,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Kiwi passion fruit guava">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Kiwi passion fruit guava</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Kiwi passion fruit guava" onclick="toggleFav('VOZOL 30ml-50mg Kiwi passion fruit guava')">❤</span>
@@ -2578,7 +2577,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Watermelon ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Watermelon ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Watermelon ice" onclick="toggleFav('VOZOL 30ml-50mg Watermelon ice')">❤</span>
@@ -2589,7 +2588,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Pomegranate lemonade">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Pomegranate lemonade</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Pomegranate lemonade" onclick="toggleFav('VOZOL 30ml-50mg Pomegranate lemonade')">❤</span>
@@ -2600,7 +2599,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Strawberry watermelon">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Strawberry watermelon</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Strawberry watermelon" onclick="toggleFav('VOZOL 30ml-50mg Strawberry watermelon')">❤</span>
@@ -2611,7 +2610,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Lavafire">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Lavafire</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Lavafire" onclick="toggleFav('VOZOL 30ml-50mg Lavafire')">❤</span>
@@ -2622,7 +2621,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Blue razz lemon">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Blue razz lemon</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Blue razz lemon" onclick="toggleFav('VOZOL 30ml-50mg Blue razz lemon')">❤</span>
@@ -2633,7 +2632,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Berry peach">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Berry peach</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Berry peach" onclick="toggleFav('VOZOL 30ml-50mg Berry peach')">❤</span>
@@ -2644,7 +2643,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Blueberry watermelon">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Blueberry watermelon</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Blueberry watermelon" onclick="toggleFav('VOZOL 30ml-50mg Blueberry watermelon')">❤</span>
@@ -2655,7 +2654,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Sour apple ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Sour apple ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Sour apple ice" onclick="toggleFav('VOZOL 30ml-50mg Sour apple ice')">❤</span>
@@ -2666,7 +2665,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Blue raspberry">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Blue raspberry</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Blue raspberry" onclick="toggleFav('VOZOL 30ml-50mg Blue raspberry')">❤</span>
@@ -2677,7 +2676,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Blueberry ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Blueberry ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Blueberry ice" onclick="toggleFav('VOZOL 30ml-50mg Blueberry ice')">❤</span>
@@ -2688,7 +2687,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Lemon lime">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Lemon lime</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Lemon lime" onclick="toggleFav('VOZOL 30ml-50mg Lemon lime')">❤</span>
@@ -2699,7 +2698,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-VOZOL 30ml-50mg Strawberry ice">
                     <div class="p-info"><b>VOZOL 30ml-50mg</b><br><small>Strawberry ice</small><div class="p-price" data-price="60zl">60zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-VOZOL 30ml-50mg Strawberry ice" onclick="toggleFav('VOZOL 30ml-50mg Strawberry ice')">❤</span>
@@ -2710,7 +2709,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg BLACKBERRY SOUR RASPBERRY">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>BLACKBERRY SOUR RASPBERRY</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg BLACKBERRY SOUR RASPBERRY" onclick="toggleFav('Chaser Black 30ml-60mg BLACKBERRY SOUR RASPBERRY')">❤</span>
@@ -2721,7 +2720,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg ENERGY GRAPE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>ENERGY GRAPE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg ENERGY GRAPE" onclick="toggleFav('Chaser Black 30ml-60mg ENERGY GRAPE')">❤</span>
@@ -2732,7 +2731,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg ENERGY RASPBERRY">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>ENERGY RASPBERRY</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg ENERGY RASPBERRY" onclick="toggleFav('Chaser Black 30ml-60mg ENERGY RASPBERRY')">❤</span>
@@ -2743,7 +2742,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg FLIRT">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>FLIRT</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg FLIRT" onclick="toggleFav('Chaser Black 30ml-60mg FLIRT')">❤</span>
@@ -2754,7 +2753,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg FOREST MIX">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>FOREST MIX</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg FOREST MIX" onclick="toggleFav('Chaser Black 30ml-60mg FOREST MIX')">❤</span>
@@ -2765,7 +2764,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg PINK LEMONADE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>PINK LEMONADE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg PINK LEMONADE" onclick="toggleFav('Chaser Black 30ml-60mg PINK LEMONADE')">❤</span>
@@ -2776,7 +2775,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg STRAWBERRY BLUEBERRY">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>STRAWBERRY BLUEBERRY</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg STRAWBERRY BLUEBERRY" onclick="toggleFav('Chaser Black 30ml-60mg STRAWBERRY BLUEBERRY')">❤</span>
@@ -2787,7 +2786,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg KIWI PASSIONFRUIT GUAVA">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>KIWI PASSIONFRUIT GUAVA</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg KIWI PASSIONFRUIT GUAVA" onclick="toggleFav('Chaser Black 30ml-60mg KIWI PASSIONFRUIT GUAVA')">❤</span>
@@ -2798,7 +2797,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg TRIPLE BERRY">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>TRIPLE BERRY</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg TRIPLE BERRY" onclick="toggleFav('Chaser Black 30ml-60mg TRIPLE BERRY')">❤</span>
@@ -2809,7 +2808,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg TRIPLE RASPBERRY">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>TRIPLE RASPBERRY</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg TRIPLE RASPBERRY" onclick="toggleFav('Chaser Black 30ml-60mg TRIPLE RASPBERRY')">❤</span>
@@ -2820,7 +2819,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg TRIPLE SOUR APPLE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>TRIPLE SOUR APPLE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg TRIPLE SOUR APPLE" onclick="toggleFav('Chaser Black 30ml-60mg TRIPLE SOUR APPLE')">❤</span>
@@ -2831,7 +2830,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg WATERMELON LEMON">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>WATERMELON LEMON</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg WATERMELON LEMON" onclick="toggleFav('Chaser Black 30ml-60mg WATERMELON LEMON')">❤</span>
@@ -2842,7 +2841,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg BUBBLEGUM">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>BUBBLEGUM</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg BUBBLEGUM" onclick="toggleFav('Chaser Black 30ml-60mg BUBBLEGUM')">❤</span>
@@ -2853,7 +2852,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg PEACH LEMONADE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>PEACH LEMONADE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg PEACH LEMONADE" onclick="toggleFav('Chaser Black 30ml-60mg PEACH LEMONADE')">❤</span>
@@ -2864,7 +2863,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg BANANA APPLE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>BANANA APPLE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg BANANA APPLE" onclick="toggleFav('Chaser Black 30ml-60mg BANANA APPLE')">❤</span>
@@ -2875,7 +2874,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg BLACKCURRANT PEACH APPLE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>BLACKCURRANT PEACH APPLE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg BLACKCURRANT PEACH APPLE" onclick="toggleFav('Chaser Black 30ml-60mg BLACKCURRANT PEACH APPLE')">❤</span>
@@ -2886,7 +2885,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg MOJITO">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>MOJITO</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg MOJITO" onclick="toggleFav('Chaser Black 30ml-60mg MOJITO')">❤</span>
@@ -2897,7 +2896,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg BALI">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>BALI</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg BALI" onclick="toggleFav('Chaser Black 30ml-60mg BALI')">❤</span>
@@ -2908,7 +2907,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg WILD STRAWBERRY KIWI">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>WILD STRAWBERRY KIWI</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg WILD STRAWBERRY KIWI" onclick="toggleFav('Chaser Black 30ml-60mg WILD STRAWBERRY KIWI')">❤</span>
@@ -2919,7 +2918,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg LEMON MINT">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>LEMON MINT</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg LEMON MINT" onclick="toggleFav('Chaser Black 30ml-60mg LEMON MINT')">❤</span>
@@ -2930,7 +2929,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Black 30ml-60mg COMPOTE">
                     <div class="p-info"><b>Chaser Black 30ml-60mg</b><br><small>COMPOTE</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Black 30ml-60mg COMPOTE" onclick="toggleFav('Chaser Black 30ml-60mg COMPOTE')">❤</span>
@@ -2941,7 +2940,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Special 30ml-60mg Mystery one">
                     <div class="p-info"><b>Chaser Special 30ml-60mg</b><br><small>Mystery one</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Special 30ml-60mg Mystery one" onclick="toggleFav('Chaser Special 30ml-60mg Mystery one')">❤</span>
@@ -2952,7 +2951,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Special 30ml-60mg Cranberry mint">
                     <div class="p-info"><b>Chaser Special 30ml-60mg</b><br><small>Cranberry mint</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Special 30ml-60mg Cranberry mint" onclick="toggleFav('Chaser Special 30ml-60mg Cranberry mint')">❤</span>
@@ -2963,7 +2962,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Chaser Special 30ml-60mg Strawberry jelly">
                     <div class="p-info"><b>Chaser Special 30ml-60mg</b><br><small>Strawberry jelly</small><div class="p-price" data-price="65zl">65zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Chaser Special 30ml-60mg Strawberry jelly" onclick="toggleFav('Chaser Special 30ml-60mg Strawberry jelly')">❤</span>
@@ -2974,7 +2973,7 @@
                         </div>
                     </div>
                 </div></div><div class="page-content" id="cat-page-Поды" style="display:none"><div class="back-link" onclick="showPage('home')">← Назад</div><h2>Поды</h2>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 mini Black">
                     <div class="p-info"><b>Vaporesso XROS 5 mini</b><br><small>Black</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 mini Black" onclick="toggleFav('Vaporesso XROS 5 mini Black')">❤</span>
@@ -2985,7 +2984,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 mini Flowing grean">
                     <div class="p-info"><b>Vaporesso XROS 5 mini</b><br><small>Flowing grean</small><div class="p-price" data-price="130zl">130zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 mini Flowing grean" onclick="toggleFav('Vaporesso XROS 5 mini Flowing grean')">❤</span>
@@ -2996,7 +2995,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD GLITTERING BLACK">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>GLITTERING BLACK</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD GLITTERING BLACK" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD GLITTERING BLACK')">❤</span>
@@ -3007,7 +3006,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD GLITTERING SILVER">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>GLITTERING SILVER</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD GLITTERING SILVER" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD GLITTERING SILVER')">❤</span>
@@ -3018,7 +3017,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD GLITTERING GOLD">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>GLITTERING GOLD</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD GLITTERING GOLD" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD GLITTERING GOLD')">❤</span>
@@ -3029,7 +3028,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD GEM GREEN">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>GEM GREEN</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD GEM GREEN" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD GEM GREEN')">❤</span>
@@ -3040,7 +3039,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD STORM BLUE">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>STORM BLUE</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD STORM BLUE" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD STORM BLUE')">❤</span>
@@ -3051,7 +3050,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD MOONLIT PINK">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>MOONLIT PINK</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD MOONLIT PINK" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD MOONLIT PINK')">❤</span>
@@ -3062,7 +3061,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso XROS 5 Pro 2 POD DAWN PURPLE">
                     <div class="p-info"><b>Vaporesso XROS 5 Pro 2 POD</b><br><small>DAWN PURPLE</small><div class="p-price" data-price="205zl">205zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso XROS 5 Pro 2 POD DAWN PURPLE" onclick="toggleFav('Vaporesso XROS 5 Pro 2 POD DAWN PURPLE')">❤</span>
@@ -3073,7 +3072,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elf X Purple">
                     <div class="p-info"><b>Elf X</b><br><small>Purple</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elf X Purple" onclick="toggleFav('Elf X Purple')">❤</span>
@@ -3084,7 +3083,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elf X Purple">
                     <div class="p-info"><b>Elf X</b><br><small>Purple</small><div class="p-price" data-price="90zl">90zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elf X Purple" onclick="toggleFav('Elf X Purple')">❤</span>
@@ -3095,7 +3094,7 @@
                         </div>
                     </div>
                 </div></div><div class="page-content" id="cat-page-Картриджи" style="display:none"><div class="back-link" onclick="showPage('home')">← Назад</div><h2>Картриджи</h2>
-                <div class="product-card">
+                <div class="product-card" id="card-Vaporesso Cartridge 3ml 0,8Ω">
                     <div class="p-info"><b>Vaporesso Cartridge</b><br><small>3ml 0,8Ω</small><div class="p-price" data-price="25zl">25zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Vaporesso Cartridge 3ml 0,8Ω" onclick="toggleFav('Vaporesso Cartridge 3ml 0,8Ω')">❤</span>
@@ -3106,7 +3105,7 @@
                         </div>
                     </div>
                 </div>
-                <div class="product-card">
+                <div class="product-card" id="card-Elf X Cartridge 3ml 0,8Ω">
                     <div class="p-info"><b>Elf X Cartridge</b><br><small>3ml 0,8Ω</small><div class="p-price" data-price="22zl">22zl PLN</div></div>
                     <div class="p-actions">
                         <span class="fav-btn" id="fav-Elf X Cartridge 3ml 0,8Ω" onclick="toggleFav('Elf X Cartridge 3ml 0,8Ω')">❤</span>
@@ -3120,16 +3119,16 @@
     <div id="page-fav" class="page-wrapper" style="display:none; padding: 15px;"><h2>Избранное</h2><div id="fav-list"></div></div>
     
     <div id="order-form">
-        <h3 style="margin-top:0">Оформление</h3>
-        <select id="pay-method"><option value="USDT TRC20">USDT (TRC20)</option><option value="Наличные">Наличные</option></select>
-        <select id="del-method" onchange="toggleAddress()"><option value="Самовывоз">Самовывоз</option><option value="Доставка">Доставка к дому</option></select>
-        <div id="address-block" style="display:none">
-            <input type="text" id="user-address" placeholder="Ваш адрес в Жешуве">
-            <div class="info-box">📍 Мы доставляем заказ прямо к вашему дому.</div>
+        <h3 style="margin:0">Оформление</h3>
+        <select id="pay-method" onchange="togglePay()"><option value="USDT TRC20">USDT (TRC20)</option><option value="Наличные">Наличные</option></select>
+        <div id="cash-currency-block" style="display:none">
+            <select id="cash-curr" onchange="calcTotal()"><option value="PLN">PLN</option><option value="USD">USD</option><option value="EUR">EUR</option></select>
         </div>
-        <input type="text" id="order-time" placeholder="Дата и время">
-        <div id="currency-res" style="font-size:13px; margin: 10px 0; color:#4ade80"></div>
-        <button onclick="finishOrder()" style="width:100%; background:#4ade80; padding:15px; border:none; border-radius:10px; font-weight:bold;">ЗАКАЗАТЬ</button>
+        <select id="del-method" onchange="toggleAddr()"><option value="Самовывоз">Самовывоз</option><option value="Доставка">Доставка к дому</option></select>
+        <input type="text" id="user-addr" style="display:none" placeholder="Адрес в Жешуве">
+        <input type="text" id="order-time" placeholder="Желаемое время">
+        <div id="total-res" style="color:#4ade80; font-weight:bold; margin:10px 0"></div>
+        <button onclick="finishOrder()" style="width:100%; background:#4ade80; padding:15px; border:none; border-radius:10px; font-weight:bold;">ПОДТВЕРДИТЬ</button>
         <button onclick="closeForm()" style="width:100%; background:none; color:red; border:none; margin-top:10px;">Отмена</button>
     </div>
 
@@ -3138,89 +3137,87 @@
     <div class="tab-bar">
         <div class="tab active" id="t-home" onclick="showPage('home')">🏠<br>Главная</div>
         <div class="tab" id="t-fav" onclick="showPage('fav')">❤️<br>Избранное</div>
-        <div class="tab" onclick="tg.showAlert('История появится здесь')">👤<br>Профиль</div>
     </div>
 
 <script>
     let tg = window.Telegram.WebApp; tg.expand();
     let cart = {}; let favs = JSON.parse(localStorage.getItem('dym_favs') || '[]');
-    let currentUsdRate = 4.10; // Базовый курс PLN к USD
+    let rates = { USD: 0.25, EUR: 0.23 }; 
 
-    // Получаем реальный курс + 2%
-    async function updateRate() {
+    async function loadRates() {
         try {
             let r = await fetch('https://api.exchangerate-api.com/v4/latest/PLN');
-            let data = await r.json();
-            currentUsdRate = data.rates.USD * 0.98; // +2% в твою сторону (уменьшаем множитель USD)
-        } catch(e) { console.log("Курс не обновился"); }
+            let d = await r.json();
+            rates.USD = d.rates.USD * 0.98; // +2% профита
+            rates.EUR = d.rates.EUR * 0.98;
+        } catch(e) {}
     }
-    updateRate();
+    loadRates();
 
     function showPage(p) {
-        document.querySelectorAll('.page-wrapper, .page-content').forEach(el => el.style.display = 'none');
-        document.querySelectorAll('.tab').forEach(t => t.classList.remove('active'));
-        if(p === 'home') { document.getElementById('page-home').style.display = 'block'; document.getElementById('t-home').classList.add('active'); }
-        if(p === 'fav') { renderFavs(); document.getElementById('page-fav').style.display = 'block'; document.getElementById('t-fav').classList.add('active'); }
+        document.querySelectorAll('.page-wrapper, .page-content').forEach(el => el.style.display='none');
+        if(p==='home') document.getElementById('page-home').style.display='block';
+        if(p==='fav') { renderFavs(); document.getElementById('page-fav').style.display='block'; }
     }
 
-    function openCategory(cat) {
-        document.getElementById('page-home').style.display = 'none';
-        document.getElementById('page-catalog').style.display = 'block';
-        document.getElementById('cat-page-' + cat).style.display = 'block';
+    function openCategory(c) {
+        document.getElementById('page-home').style.display='none';
+        document.getElementById('page-catalog').style.display='block';
+        document.getElementById('cat-page-'+c).style.display='block';
     }
 
-    function changeQty(name, delta, max) {
-        let curr = cart[name] || 0;
-        if(delta > 0 && curr >= max) { tg.showAlert('Нет в наличии!'); return; }
-        curr += delta;
-        if(curr <= 0) { curr = 0; delete cart[name]; } else { cart[name] = curr; }
-        let el = document.getElementById('q-' + name); if(el) el.innerText = curr;
-        updateMainBtn();
-    }
-
-    function updateMainBtn() {
-        let total = Object.values(cart).reduce((a,b) => a+b, 0);
-        document.getElementById('main-btn').style.display = total > 0 ? 'block' : 'none';
-        document.getElementById('main-btn').innerText = 'Оформить (' + total + ')';
-    }
-
-    function toggleFav(name) {
-        let idx = favs.indexOf(name);
-        let btn = document.getElementById('fav-' + name);
-        if(idx > -1) { favs.splice(idx, 1); if(btn) btn.classList.remove('active'); }
-        else { favs.push(name); if(btn) btn.classList.add('active'); }
+    function toggleFav(n) {
+        let i = favs.indexOf(n);
+        if(i > -1) favs.splice(i, 1); else favs.push(n);
         localStorage.setItem('dym_favs', JSON.stringify(favs));
+        document.getElementById('fav-'+n).classList.toggle('active');
     }
 
-    function toggleAddress() {
-        let isDel = document.getElementById('del-method').value === 'Доставка';
-        document.getElementById('address-block').style.display = isDel ? 'block' : 'none';
+    function renderFavs() {
+        let l = document.getElementById('fav-list');
+        l.innerHTML = favs.length ? favs.map(n => `<div class="product-card"><b>${n}</b><button onclick="toggleFav('${n}');renderFavs()">✕</button></div>`).join('') : 'Пусто';
     }
 
-    function openForm() { 
-        let totalPLN = 0;
-        // Проходим по всем элементам в корзине и считаем сумму
-        Object.keys(cart).forEach(name => {
-            let card = document.querySelector(`[id="q-${name}"]`).closest('.product-card');
-            let p = parseFloat(card.querySelector('.p-price').dataset.price);
-            totalPLN += p * cart[name];
+    function changeQty(n, d, m) {
+        let c = cart[n] || 0;
+        if(d>0 && c>=m) return;
+        c += d;
+        if(c<=0) delete cart[n]; else cart[n]=c;
+        document.getElementById('q-'+n).innerText = c || 0;
+        let t = Object.values(cart).reduce((a,b)=>a+b,0);
+        document.getElementById('main-btn').style.display = t>0 ? 'block':'none';
+    }
+
+    function togglePay() { document.getElementById('cash-currency-block').style.display = document.getElementById('pay-method').value === 'Наличные' ? 'block':'none'; calcTotal(); }
+    function toggleAddr() { document.getElementById('user-addr').style.display = document.getElementById('del-method').value === 'Доставка' ? 'block':'none'; }
+    
+    function calcTotal() {
+        let pln = 0;
+        Object.keys(cart).forEach(n => {
+            let p = parseFloat(document.querySelector(`#card-${n.replace(/ /g, '\ ')} .p-price`).dataset.price);
+            pln += p * cart[n];
         });
-        let totalUsdt = (totalPLN * currentUsdRate).toFixed(2);
-        document.getElementById('currency-res').innerHTML = `Итого: ${totalPLN} PLN ≈ ${totalUsdt} USDT`;
-        document.getElementById('order-form').style.display = 'block'; 
+        let m = document.getElementById('pay-method').value;
+        let c = document.getElementById('cash-curr').value;
+        let res = "";
+        if(m === 'USDT TRC20') res = (pln * rates.USD).toFixed(2) + " USDT";
+        else res = c === 'PLN' ? pln + " PLN" : (pln * rates[c]).toFixed(2) + " " + c;
+        document.getElementById('total-res').innerText = "Итого: " + res;
     }
 
-    function closeForm() { document.getElementById('order-form').style.display = 'none'; }
+    function openForm() { calcTotal(); document.getElementById('order-form').style.display='block'; }
+    function closeForm() { document.getElementById('order-form').style.display='none'; }
 
     function finishOrder() {
-        let isDel = document.getElementById('del-method').value === 'Доставка';
-        let addr = document.getElementById('user-address').value;
-        if(isDel && !addr) { tg.showAlert('Введите адрес доставки!'); return; }
-
         let items = Object.keys(cart).map(k => k + " x" + cart[k]).join("\n");
-        let details = `\n💵 Оплата: ${document.getElementById('pay-method').value}\n🚚 Способ: ${document.getElementById('del-method').value}${isDel ? "\n🏠 Адрес: " + addr : ""}\n⏰ Время: ${document.getElementById('order-time').value}`;
-        
-        tg.sendData("НОВЫЙ ЗАКАЗ:\n" + items + details);
+        let pay = document.getElementById('pay-method').value;
+        if(pay==='Наличные') pay += " (" + document.getElementById('cash-curr').value + ")";
+        let del = document.getElementById('del-method').value;
+        let msg = "ЗАКАЗ:\n"+items+"\n\nОплата: "+pay+"\nПолучение: "+del;
+        if(del==='Доставка') msg += "\nАдрес: " + document.getElementById('user-addr').value;
+        tg.sendData(msg);
         tg.close();
     }
+    
+    favs.forEach(f => { let e=document.getElementById('fav-'+f); if(e) e.classList.add('active'); });
 </script></body></html>
