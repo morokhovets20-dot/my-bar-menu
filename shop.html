@@ -4,19 +4,21 @@
 <style>
     :root { --bg: #0b0f19; --card: #1c212e; --accent: #3d8bff; --text: #fff; --gray: #8b949e; }
     body { font-family: sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 110px; }
-    .header { padding: 15px; font-weight: 800; font-size: 19px; border-bottom: 1px solid #2d333b; }
+    .header { padding: 15px; font-weight: 800; font-size: 19px; border-bottom: 1px solid #2d333b; text-align: center; }
     .cat-list { display: flex; gap: 15px; overflow-x: auto; padding: 15px; scrollbar-width: none; }
     .cat-item { display: flex; flex-direction: column; align-items: center; min-width: 75px; }
     .cat-circle { width: 60px; height: 60px; border-radius: 50%; background: #161b26; border: 2px solid var(--accent); display: flex; align-items: center; justify-content: center; font-size: 22px; margin-bottom: 6px; }
     .cat-section { padding: 0 15px; }
-    .card { background: var(--card); border-radius: 15px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; border: 1px solid #2d333b; }
+    .card { background: var(--card); border-radius: 15px; padding: 12px; margin-bottom: 10px; display: flex; justify-content: space-between; align-items: center; border: 1px solid #2d333b; }
+    .card-title { font-weight: bold; font-size: 15px; }
+    .card-sub { font-size: 12px; color: var(--gray); }
     .card-price { color: #4ade80; font-weight: bold; }
     .controls { display: flex; align-items: center; gap: 12px; background: #0b0f19; padding: 6px; border-radius: 10px; }
-    .controls button { width: 32px; height: 32px; border-radius: 8px; border: none; color: white; font-weight: bold; }
+    .controls button { width: 32px; height: 32px; border-radius: 8px; border: none; color: white; font-weight: bold; font-size: 18px; }
     .btn-p { background: var(--accent); } .btn-m { background: #30363d; }
     .tab-bar { position: fixed; bottom: 0; left: 0; right: 0; background: #161b26; display: flex; justify-content: space-around; padding: 10px 0; border-top: 1px solid #2d333b; }
     .tab { display: flex; flex-direction: column; align-items: center; font-size: 10px; color: var(--gray); }
-    #main-btn { position: fixed; bottom: 75px; left: 15px; right: 15px; background: #4ade80; color: #000; padding: 16px; border-radius: 14px; text-align: center; font-weight: bold; display: none; }
+    #main-btn { position: fixed; bottom: 75px; left: 15px; right: 15px; background: #4ade80; color: #000; padding: 16px; border-radius: 14px; text-align: center; font-weight: bold; display: none; z-index: 1000; }
 </style></head><body>
     <div class="header">Dym Rzeszów Shop</div>
     <div class="cat-list"><div class="cat-item" onclick="scrollToCat('Табак')"><div class="cat-circle">💨</div><span>Табак</span></div><div class="cat-item" onclick="scrollToCat('Уголь')"><div class="cat-circle">💨</div><span>Уголь</span></div><div class="cat-item" onclick="scrollToCat('Одноразки')"><div class="cat-circle">💨</div><span>Одноразки</span></div><div class="cat-item" onclick="scrollToCat('Жижи')"><div class="cat-circle">💨</div><span>Жижи</span></div><div class="cat-item" onclick="scrollToCat('Поды')"><div class="cat-circle">💨</div><span>Поды</span></div><div class="cat-item" onclick="scrollToCat('Картриджи')"><div class="cat-circle">💨</div><span>Картриджи</span></div></div>
@@ -1216,9 +1218,9 @@
                         <div class="card-price">30zl PLN <small>(∞ шт.)</small></div>
                     </div>
                     <div class="controls">
-                        <button class="btn-m" onclick="changeQty('Oven 1kg', -1, 9999)">-</button>
+                        <button class="btn-m" onclick="changeQty('Oven 1kg', -1, 999)">-</button>
                         <span id="qty-Oven 1kg">0</span>
-                        <button class="btn-p" onclick="changeQty('Oven 1kg', 1, 9999)">+</button>
+                        <button class="btn-p" onclick="changeQty('Oven 1kg', 1, 999)">+</button>
                     </div>
                 </div>
                 <div class="card">
@@ -1228,9 +1230,9 @@
                         <div class="card-price">30zl PLN <small>(∞ шт.)</small></div>
                     </div>
                     <div class="controls">
-                        <button class="btn-m" onclick="changeQty('Crown 1kg', -1, 9999)">-</button>
+                        <button class="btn-m" onclick="changeQty('Crown 1kg', -1, 999)">-</button>
                         <span id="qty-Crown 1kg">0</span>
-                        <button class="btn-p" onclick="changeQty('Crown 1kg', 1, 9999)">+</button>
+                        <button class="btn-p" onclick="changeQty('Crown 1kg', 1, 999)">+</button>
                     </div>
                 </div>
                 <div class="card">
@@ -1240,9 +1242,9 @@
                         <div class="card-price">30zl PLN <small>(∞ шт.)</small></div>
                     </div>
                     <div class="controls">
-                        <button class="btn-m" onclick="changeQty('Gresco 1kg', -1, 9999)">-</button>
+                        <button class="btn-m" onclick="changeQty('Gresco 1kg', -1, 999)">-</button>
                         <span id="qty-Gresco 1kg">0</span>
-                        <button class="btn-p" onclick="changeQty('Gresco 1kg', 1, 9999)">+</button>
+                        <button class="btn-p" onclick="changeQty('Gresco 1kg', 1, 999)">+</button>
                     </div>
                 </div></div><div class="cat-section" id="section-Одноразки"><h3>Одноразки</h3>
                 <div class="card">
@@ -3393,24 +3395,25 @@
                         <button class="btn-p" onclick="changeQty('Elf X Cartridge 3ml 0,8Ω', 1, 40)">+</button>
                     </div>
                 </div></div></div>
-    <div id="main-btn" onclick="sendOrder()">Заказать</div>
+    <div id="main-btn" onclick="sendOrder()">Оформить заказ</div>
     <div class="tab-bar">
         <div class="tab" style="color:#3d8bff">🏠<br>Главная</div>
         <div class="tab" onclick="tg.showAlert('Корзина пуста')">🛒<br>Корзина</div>
-        <div class="tab" onclick="tg.showAlert('Скоро')">❤️<br>Избранное</div>
-        <div class="tab" onclick="tg.showAlert('Скоро')">👤<br>Профиль</div>
+        <div class="tab" onclick="tg.showAlert('❤️')">❤️<br>Избранное</div>
+        <div class="tab" onclick="tg.showAlert('👤')">👤<br>Профиль</div>
     </div>
 <script>
     let tg = window.Telegram.WebApp; tg.expand(); let cart = {};
     function changeQty(name, delta, max) {
         let curr = cart[name] || 0;
-        if (delta > 0 && curr >= max) { tg.showAlert('Больше нет в наличии!'); return; }
+        if (delta > 0 && curr >= max) { tg.showAlert('Лимит наличия!'); return; }
         curr += delta;
         if (curr <= 0) { curr = 0; delete cart[name]; } else { cart[name] = curr; }
-        document.getElementById('qty-' + name).innerText = curr;
+        let el = document.getElementById('qty-' + name); if(el) el.innerText = curr;
         let total = Object.values(cart).reduce((a, b) => a + b, 0);
-        document.getElementById('main-btn').style.display = total > 0 ? 'block' : 'none';
-        document.getElementById('main-btn').innerText = 'Заказать (' + total + ')';
+        let btn = document.getElementById('main-btn');
+        btn.style.display = total > 0 ? 'block' : 'none';
+        btn.innerText = 'Оформить заказ (' + total + ')';
     }
     function scrollToCat(id) { document.getElementById('section-' + id).scrollIntoView({behavior: "smooth"}); }
     function sendOrder() {
