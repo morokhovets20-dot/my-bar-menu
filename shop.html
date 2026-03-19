@@ -6,78 +6,69 @@
     <script src="https://telegram.org/js/telegram-web-app.js"></script>
     <style>
         :root { --bg: #0b1019; --card: #1c222d; --accent: #5b6cff; --text: #fff; }
-        * { box-sizing: border-box; -webkit-tap-highlight-color: transparent; }
-        body { font-family: -apple-system, sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 90px; overflow-x: hidden; }
+        * { box-sizing: border-box; }
+        body { font-family: sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 90px; }
         
-        /* Сетка категорий */
-        .categories-scroll { display: grid; grid-template-columns: repeat(3, 2fr); gap: 10px; padding: 15px; }
-        .cat-img-box { position: relative; border-radius: 15px; overflow: hidden; aspect-ratio: 1/1; border: 1px solid #2d3440; background: #000; }
+        .categories-scroll { display: grid; grid-template-columns: repeat(3, 1fr); gap: 10px; padding: 15px; }
+        .cat-img-box { position: relative; border-radius: 12px; overflow: hidden; aspect-ratio: 1/1; border: 1px solid #2d3440; background: #000; }
         .cat-img-box img { width: 100%; height: 100%; object-fit: cover; }
-        .cat-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.5); display:flex; align-items:center; justify-content:center; text-align:center; }
-        .cat-overlay span { font-size: 11px; font-weight: 900; text-transform: uppercase; letter-spacing: 0.5px; }
+        .cat-overlay { position: absolute; top:0; left:0; width:100%; height:100%; background: rgba(0,0,0,0.4); display:flex; align-items:center; justify-content:center; }
+        .cat-overlay span { font-size: 10px; font-weight: bold; text-transform: uppercase; text-align: center; }
 
-        /* Карточки товаров */
         .product-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 10px; padding: 10px; }
-        .product-card { background: var(--card); border-radius: 18px; border: 1px solid #2d3440; overflow: hidden; display: flex; flex-direction: column; }
-        .product-info { padding: 12px; }
-        .product-title { font-size: 13px; font-weight: bold; margin-bottom: 8px; height: 32px; overflow: hidden; }
+        .product-card { background: var(--card); border-radius: 15px; border: 1px solid #2d3440; padding: 12px; }
+        .product-title { font-size: 12px; font-weight: bold; height: 32px; overflow: hidden; margin-bottom: 10px; }
         .btn-add { background: var(--accent); color: #fff; border: none; width: 100%; padding: 10px; border-radius: 10px; font-weight: bold; }
         
-        /* Корзина */
         #order-page { display:none; position: fixed; top:0; left:0; width:100%; height:100%; background:var(--bg); z-index:2000; padding:20px; overflow-y:auto; }
-        .order-input { width: 100%; padding: 14px; background: var(--card); border: 1px solid #2d3440; border-radius: 12px; color: #fff; margin-bottom: 15px; font-size: 16px; outline: none; }
-        .wallet-box { background: #000; padding: 15px; border: 1px dashed var(--accent); border-radius: 12px; margin-bottom: 15px; display: none; word-break: break-all; font-family: monospace; }
-        .delivery-note { color: #10b981; font-weight: bold; text-align: center; display: block; margin-bottom: 20px; font-size: 14px; }
-        
-        .counter-container { display: flex; justify-content: space-between; align-items: center; background: #000; border-radius: 10px; padding: 3px; }
-        .counter-btn { width: 32px; height: 32px; border: none; border-radius: 8px; color: #fff; font-weight: bold; font-size: 18px; }
+        .order-input { width: 100%; padding: 12px; background: var(--card); border: 1px solid #2d3440; border-radius: 10px; color: #fff; margin-bottom: 15px; }
+        .delivery-note { color: #10b981; font-weight: bold; text-align: center; display: block; margin-bottom: 15px; font-size: 13px; }
     </style>
 </head>
 <body>
 
-    <div style="text-align:center; padding: 25px 10px 10px; font-size: 24px; font-weight: 900; letter-spacing: 2px; color: var(--accent);">SMAK BAR</div>
+    <div style="text-align:center; padding: 20px 10px 10px; font-size: 22px; font-weight: bold; color: var(--accent);">SMAK BAR</div>
 
     <div id="home-page">
         <div class="categories-scroll">
             <div class="cat-item" onclick="openCategory('Табак')">
                 <div class="cat-img-box">
-                    <img src="https://m.media-amazon.com/images/I/71-0Z8E4G2L._AC_SL1500_.jpg" loading="lazy">
+                    <img src="https://hookah-tobacco.com/wp-content/uploads/2021/04/420-tobacco.jpg" onerror="this.src='https://via.placeholder.com/400x400?text=Табак'">
                     <div class="cat-overlay"><span>Табак</span></div>
                 </div>
             </div>
             <div class="cat-item" onclick="openCategory('Уголь')">
                 <div class="cat-img-box">
-                    <img src="https://shishalove.pl/pol_pl_Wegiel-kokosowy-TOM-COCOCHA-Blue-1kg-844_1.jpg" loading="lazy">
+                    <img src="https://shishalove.pl/pol_pl_Wegiel-kokosowy-TOM-COCOCHA-Blue-1kg-844_1.jpg" onerror="this.src='https://via.placeholder.com/400x400?text=Уголь'">
                     <div class="cat-overlay"><span>Уголь</span></div>
                 </div>
             </div>
             <div class="cat-item" onclick="openCategory('Одноразки')">
                 <div class="cat-img-box">
-                    <img src="https://vapesourcing.com/media/catalog/product/e/l/elf-bar-bc5000-disposable-vape-kit.jpg" loading="lazy">
+                    <img src="https://vapesourcing.com/media/catalog/product/e/l/elf-bar-bc5000-disposable-vape-kit.jpg" onerror="this.src='https://via.placeholder.com/400x400?text=Одноразки'">
                     <div class="cat-overlay"><span>Одноразки</span></div>
                 </div>
             </div>
             <div class="cat-item" onclick="openCategory('Жижи')">
                 <div class="cat-img-box">
-                    <img src="https://chaserlab.com/storage/products/October2022/vYfH4H8uYfH4H8.png" loading="lazy">
+                    <img src="https://chaserlab.com/storage/products/October2022/vYfH4H8uYfH4H8.png" onerror="this.src='https://via.placeholder.com/400x400?text=Жижи'">
                     <div class="cat-overlay"><span>Жижи</span></div>
                 </div>
             </div>
             <div class="cat-item" onclick="openCategory('Поды')">
                 <div class="cat-img-box">
-                    <img src="https://www.vaporesso.com/hubfs/XROS%203%20NANO.png" loading="lazy">
+                    <img src="https://www.vaporesso.com/hubfs/XROS%203%20NANO.png" onerror="this.src='https://via.placeholder.com/400x400?text=Поды'">
                     <div class="cat-overlay"><span>Поды</span></div>
                 </div>
             </div>
             <div class="cat-item" onclick="openCategory('Картриджи')">
                 <div class="cat-img-box">
-                    <img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" loading="lazy">
+                    <img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" onerror="this.src='https://via.placeholder.com/400x400?text=Картриджи'">
                     <div class="cat-overlay"><span>Картриджи</span></div>
                 </div>
             </div></div>
         <div id="catalog-container"><div class="page-content product-grid" id="cat-page-Табак" style="display:none">
                 <div class="product-card" data-id="item_0" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -90,7 +81,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_1" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -103,7 +93,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_2" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -116,7 +105,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_3" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -129,7 +117,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_4" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -142,7 +129,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_5" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -155,7 +141,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_6" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -168,7 +153,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_7" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -181,7 +165,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_8" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -194,7 +177,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_9" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -207,7 +189,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_10" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -220,7 +201,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_11" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -233,7 +213,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_12" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -246,7 +225,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_13" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -259,7 +237,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_14" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -272,7 +249,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_15" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -285,7 +261,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_16" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -298,7 +273,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_17" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -311,7 +285,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_18" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -324,7 +297,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_19" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -337,7 +309,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_20" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -350,7 +321,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_21" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Forest Line 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -363,7 +333,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_22" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Heven 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -376,7 +345,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_23" data-price="70.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Heven 100gr</div>
                         <div class="product-price">70.0 <span>zł</span></div>
@@ -389,7 +357,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_24" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -402,7 +369,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_25" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -415,7 +381,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_26" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -428,7 +393,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_27" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -441,7 +405,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_28" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -454,7 +417,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_29" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -467,7 +429,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_30" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -480,7 +441,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_31" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -493,7 +453,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_32" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -506,7 +465,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_33" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -519,7 +477,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_34" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -532,7 +489,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_35" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -545,7 +501,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_36" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -558,7 +513,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_37" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -571,7 +525,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_38" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -584,7 +537,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_39" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -597,7 +549,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_40" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -610,7 +561,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_41" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -623,7 +573,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_42" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -636,7 +585,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_43" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -649,7 +597,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_44" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -662,7 +609,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_45" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -675,7 +621,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_46" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -688,7 +633,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_47" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -701,7 +645,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_48" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -714,7 +657,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_49" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -727,7 +669,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_50" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -740,7 +681,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_51" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -753,7 +693,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_52" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -766,7 +705,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_53" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -779,7 +717,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_54" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -792,7 +729,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_55" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -805,7 +741,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_56" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -818,7 +753,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_57" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -831,7 +765,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_58" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -844,7 +777,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_59" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -857,7 +789,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_60" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -870,7 +801,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_61" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Unity 100gr</div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -883,7 +813,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_62" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -896,7 +825,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_63" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -909,7 +837,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_64" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -922,7 +849,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_65" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -935,7 +861,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_66" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -948,7 +873,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_67" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -961,7 +885,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_68" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -974,7 +897,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_69" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -987,7 +909,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_70" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1000,7 +921,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_71" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1013,7 +933,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_72" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1026,7 +945,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_73" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1039,7 +957,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_74" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1052,7 +969,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_75" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1065,7 +981,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_76" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1078,7 +993,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_77" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1091,7 +1005,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_78" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1104,7 +1017,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_79" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1117,7 +1029,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_80" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1130,7 +1041,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_81" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1143,7 +1053,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_82" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">420 Light 100gr</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -1156,7 +1065,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_83" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Tangiers 100gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1169,7 +1077,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_84" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Tangiers 100gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1182,7 +1089,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_85" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Tangiers 100gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1195,7 +1101,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_86" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Tangiers 100gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1208,7 +1113,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_87" data-price="50.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Honey Badger 100gr</div>
                         <div class="product-price">50.0 <span>zł</span></div>
@@ -1221,7 +1125,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_88" data-price="80.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">DarkSide 100gr</div>
                         <div class="product-price">80.0 <span>zł</span></div>
@@ -1234,7 +1137,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_89" data-price="80.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">DarkSide 100gr</div>
                         <div class="product-price">80.0 <span>zł</span></div>
@@ -1247,7 +1149,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_90" data-price="80.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">DarkSide 100gr</div>
                         <div class="product-price">80.0 <span>zł</span></div>
@@ -1260,7 +1161,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_91" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1273,7 +1173,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_92" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1286,7 +1185,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_93" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1299,7 +1197,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_94" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1312,7 +1209,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_95" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1325,7 +1221,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_96" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1338,7 +1233,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_97" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1351,7 +1245,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_98" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">MustHave 125gr</div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -1364,7 +1257,6 @@
                     </div>
                 </div></div><div class="page-content product-grid" id="cat-page-Уголь" style="display:none">
                 <div class="product-card" data-id="item_99" data-price="30.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Oven</div>
                         <div class="product-price">30.0 <span>zł</span></div>
@@ -1377,7 +1269,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_100" data-price="30.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Crown</div>
                         <div class="product-price">30.0 <span>zł</span></div>
@@ -1390,7 +1281,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_101" data-price="30.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Gresco</div>
                         <div class="product-price">30.0 <span>zł</span></div>
@@ -1403,7 +1293,6 @@
                     </div>
                 </div></div><div class="page-content product-grid" id="cat-page-Одноразки" style="display:none">
                 <div class="product-card" data-id="item_102" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1416,7 +1305,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_103" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1429,7 +1317,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_104" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1442,7 +1329,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_105" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1455,7 +1341,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_106" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1468,7 +1353,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_107" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1481,7 +1365,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_108" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1494,7 +1377,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_109" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1507,7 +1389,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_110" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ri 3000 </div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -1520,7 +1401,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_111" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1533,7 +1413,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_112" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1546,7 +1425,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_113" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1559,7 +1437,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_114" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1572,7 +1449,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_115" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1585,7 +1461,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_116" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1598,7 +1473,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_117" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1611,7 +1485,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_118" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1624,7 +1497,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_119" data-price="75.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">HQD Cuvie bar </div>
                         <div class="product-price">75.0 <span>zł</span></div>
@@ -1637,7 +1509,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_120" data-price="110.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 23 000 </div>
                         <div class="product-price">110.0 <span>zł</span></div>
@@ -1650,7 +1521,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_121" data-price="110.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 23 000 </div>
                         <div class="product-price">110.0 <span>zł</span></div>
@@ -1663,7 +1533,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_122" data-price="110.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 23 000 </div>
                         <div class="product-price">110.0 <span>zł</span></div>
@@ -1676,7 +1545,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_123" data-price="110.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 23 000 </div>
                         <div class="product-price">110.0 <span>zł</span></div>
@@ -1689,7 +1557,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_124" data-price="110.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 23 000 </div>
                         <div class="product-price">110.0 <span>zł</span></div>
@@ -1702,7 +1569,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_125" data-price="110.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 23 000 </div>
                         <div class="product-price">110.0 <span>zł</span></div>
@@ -1715,7 +1581,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_126" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Combo 25 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1728,7 +1593,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_127" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Combo 25 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1741,7 +1605,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_128" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 25 000 </div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1754,7 +1617,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_129" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 25 000 </div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1767,7 +1629,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_130" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 25 000 </div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1780,7 +1641,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_131" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ice King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1793,7 +1653,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_132" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ice King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1806,7 +1665,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_133" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ice King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1819,7 +1677,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_134" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ice King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1832,7 +1689,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_135" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Ice King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1845,7 +1701,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_136" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Nic King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1858,7 +1713,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_137" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Nic King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1871,7 +1725,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_138" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Nic King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1884,7 +1737,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_139" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Nic King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1897,7 +1749,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_140" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Nic King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1910,7 +1761,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_141" data-price="120.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Sweet King 30 000</div>
                         <div class="product-price">120.0 <span>zł</span></div>
@@ -1923,7 +1773,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_142" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -1936,7 +1785,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_143" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -1949,7 +1797,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_144" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -1962,7 +1809,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_145" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -1975,7 +1821,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_146" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -1988,7 +1833,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_147" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -2001,7 +1845,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_148" data-price="135.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Raya D3 Pro </div>
                         <div class="product-price">135.0 <span>zł</span></div>
@@ -2014,7 +1857,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_149" data-price="140.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 33 000 </div>
                         <div class="product-price">140.0 <span>zł</span></div>
@@ -2027,7 +1869,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_150" data-price="140.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 33 000 </div>
                         <div class="product-price">140.0 <span>zł</span></div>
@@ -2040,7 +1881,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_151" data-price="140.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 33 000 </div>
                         <div class="product-price">140.0 <span>zł</span></div>
@@ -2053,7 +1893,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_152" data-price="140.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar GH 33 000 </div>
                         <div class="product-price">140.0 <span>zł</span></div>
@@ -2066,7 +1905,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_153" data-price="145.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar TRIO 40 000 </div>
                         <div class="product-price">145.0 <span>zł</span></div>
@@ -2079,7 +1917,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_154" data-price="145.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar TRIO 40 000 </div>
                         <div class="product-price">145.0 <span>zł</span></div>
@@ -2092,7 +1929,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_155" data-price="145.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar TRIO 40 000 </div>
                         <div class="product-price">145.0 <span>zł</span></div>
@@ -2105,7 +1941,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_156" data-price="145.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar TRIO 40 000 </div>
                         <div class="product-price">145.0 <span>zł</span></div>
@@ -2118,7 +1953,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_157" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2131,7 +1965,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_158" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2144,7 +1977,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_159" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2157,7 +1989,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_160" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2170,7 +2001,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_161" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2183,7 +2013,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_162" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2196,7 +2025,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_163" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2209,7 +2037,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_164" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2222,7 +2049,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_165" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar Lush King 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2235,7 +2061,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_166" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2248,7 +2073,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_167" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2261,7 +2085,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_168" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2274,7 +2097,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_169" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2287,7 +2109,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_170" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2300,7 +2121,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_171" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2313,7 +2133,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_172" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2326,7 +2145,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_173" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2339,7 +2157,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_174" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2352,7 +2169,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_175" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2365,7 +2181,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_176" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2378,7 +2193,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_177" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2391,7 +2205,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_178" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC PRO 40 000 </div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -2404,7 +2217,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_179" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2417,7 +2229,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_180" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2430,7 +2241,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_181" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2443,7 +2253,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_182" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2456,7 +2265,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_183" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2469,7 +2277,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_184" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2482,7 +2289,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_185" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2495,7 +2301,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_186" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2508,7 +2313,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_187" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2521,7 +2325,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_188" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2534,7 +2337,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_189" data-price="155.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elfbar BC 45 000 </div>
                         <div class="product-price">155.0 <span>zł</span></div>
@@ -2547,7 +2349,6 @@
                     </div>
                 </div></div><div class="page-content product-grid" id="cat-page-Жижи" style="display:none">
                 <div class="product-card" data-id="item_190" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2560,7 +2361,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_191" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2573,7 +2373,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_192" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2586,7 +2385,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_193" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2599,7 +2397,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_194" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2612,7 +2409,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_195" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2625,7 +2421,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_196" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2638,7 +2433,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_197" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2651,7 +2445,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_198" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2664,7 +2457,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_199" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2677,7 +2469,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_200" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2690,7 +2481,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_201" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2703,7 +2493,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_202" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2716,7 +2505,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_203" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2729,7 +2517,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_204" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2742,7 +2529,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_205" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2755,7 +2541,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_206" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2768,7 +2553,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_207" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2781,7 +2565,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_208" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2794,7 +2577,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_209" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2807,7 +2589,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_210" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2820,7 +2601,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_211" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2833,7 +2613,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_212" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2846,7 +2625,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_213" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2859,7 +2637,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_214" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2872,7 +2649,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_215" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2885,7 +2661,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_216" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2898,7 +2673,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_217" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2911,7 +2685,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_218" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">ELFLIQ 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2924,7 +2697,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_219" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2937,7 +2709,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_220" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2950,7 +2721,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_221" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2963,7 +2733,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_222" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2976,7 +2745,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_223" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -2989,7 +2757,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_224" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3002,7 +2769,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_225" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3015,7 +2781,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_226" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3028,7 +2793,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_227" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3041,7 +2805,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_228" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3054,7 +2817,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_229" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3067,7 +2829,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_230" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3080,7 +2841,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_231" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3093,7 +2853,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_232" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3106,7 +2865,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_233" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3119,7 +2877,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_234" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3132,7 +2889,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_235" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3145,7 +2901,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_236" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3158,7 +2913,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_237" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3171,7 +2925,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_238" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3184,7 +2937,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_239" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3197,7 +2949,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_240" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3210,7 +2961,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_241" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3223,7 +2973,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_242" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3236,7 +2985,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_243" data-price="60.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">VOZOL 30ml-50mg</div>
                         <div class="product-price">60.0 <span>zł</span></div>
@@ -3249,7 +2997,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_244" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3262,7 +3009,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_245" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3275,7 +3021,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_246" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3288,7 +3033,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_247" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3301,7 +3045,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_248" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3314,7 +3057,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_249" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3327,7 +3069,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_250" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3340,7 +3081,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_251" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3353,7 +3093,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_252" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3366,7 +3105,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_253" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3379,7 +3117,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_254" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3392,7 +3129,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_255" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3405,7 +3141,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_256" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3418,7 +3153,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_257" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3431,7 +3165,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_258" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3444,7 +3177,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_259" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3457,7 +3189,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_260" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3470,7 +3201,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_261" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3483,7 +3213,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_262" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3496,7 +3225,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_263" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3509,7 +3237,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_264" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Black 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3522,7 +3249,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_265" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Special 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3535,7 +3261,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_266" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Special 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3548,7 +3273,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_267" data-price="65.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Chaser Special 30ml-60mg</div>
                         <div class="product-price">65.0 <span>zł</span></div>
@@ -3561,7 +3285,6 @@
                     </div>
                 </div></div><div class="page-content product-grid" id="cat-page-Поды" style="display:none">
                 <div class="product-card" data-id="item_268" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 mini</div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -3574,7 +3297,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_269" data-price="130.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 mini</div>
                         <div class="product-price">130.0 <span>zł</span></div>
@@ -3587,7 +3309,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_270" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3600,7 +3321,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_271" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3613,7 +3333,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_272" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3626,7 +3345,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_273" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3639,7 +3357,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_274" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3652,7 +3369,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_275" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3665,7 +3381,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_276" data-price="205.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso XROS 5 Pro 2 POD</div>
                         <div class="product-price">205.0 <span>zł</span></div>
@@ -3678,7 +3393,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_277" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elf X </div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -3691,7 +3405,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_278" data-price="90.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elf X </div>
                         <div class="product-price">90.0 <span>zł</span></div>
@@ -3704,7 +3417,6 @@
                     </div>
                 </div></div><div class="page-content product-grid" id="cat-page-Картриджи" style="display:none">
                 <div class="product-card" data-id="item_279" data-price="25.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Vaporesso Cartridge</div>
                         <div class="product-price">25.0 <span>zł</span></div>
@@ -3717,7 +3429,6 @@
                     </div>
                 </div>
                 <div class="product-card" data-id="item_280" data-price="22.0">
-                    <div class="product-img"><img src="https://generayvape.com/wp-content/uploads/2021/04/vthru-cart.jpg" style="opacity:0.1; width:40px;"></div>
                     <div class="product-info">
                         <div class="product-title">Elf X Cartridge</div>
                         <div class="product-price">22.0 <span>zł</span></div>
@@ -3732,59 +3443,39 @@
     </div>
 
     <div id="order-page">
-        <div onclick="closeCart()" style="color:var(--accent); font-weight:bold; margin-bottom:25px; cursor:pointer; font-size: 18px;">← НАЗАД</div>
-        <span class="delivery-note">📍 ДОСТАВЛЯЕМ К ВАШЕМУ ДОМУ В ЖЕШУВЕ!</span>
+        <div onclick="closeCart()" style="color:var(--accent); font-weight:bold; margin-bottom:20px; cursor:pointer;">← НАЗАД</div>
+        <span class="delivery-note">✅ Доставляем к вашему дому в Жешуве!</span>
         
-        <div id="cart-list" style="margin-bottom:20px;"></div>
+        <div id="cart-list" style="margin-bottom:15px;"></div>
 
-        <label style="font-size: 12px; color: #8e97a4; margin-left: 5px;">Выберите валюту:</label>
-        <select class="order-input" id="o-curr" onchange="updateTotal()">
-            <option value="PLN">PLN (Злотые)</option>
-            <option value="USD">USDT (Крипто-доллар)</option>
-        </select>
-
-        <label style="font-size: 12px; color: #8e97a4; margin-left: 5px;">Метод оплаты:</label>
         <select class="order-input" id="o-pay" onchange="toggleWallet(this.value)">
-            <option value="Cash">Наличные при получении</option>
+            <option value="Cash">Наличные курьеру</option>
             <option value="Crypto">USDT (TRC20)</option>
         </select>
 
-        <div id="wallet-info" class="wallet-box">
-            <span style="color: var(--accent); font-size: 10px;">АДРЕС ДЛЯ ОПЛАТЫ TRC20:</span><br>
-            <code>TAHDqDoL9CZ89BbmkXH63uxJjkkuPjLjPp</code>
+        <div id="wallet-info" style="display:none; background:#000; padding:10px; border:1px dashed var(--accent); border-radius:10px; margin-bottom:15px; font-size:11px; word-break:break-all;">
+            <b>Кошелек:</b><br><code>TAHDqDoL9CZ89BbmkXH63uxJjkkuPjLjPp</code>
         </div>
 
-        <input type="text" class="order-input" id="o-addr" placeholder="Ваш адрес (Улица, дом)">
+        <input type="text" class="order-input" id="o-addr" placeholder="Улица, дом (Жешув)">
 
-        <div style="background:var(--card); padding:20px; border-radius:15px; border:1px solid var(--accent); margin-bottom:20px;">
-            <div style="display:flex; justify-content:space-between; font-size:22px; font-weight:900;">
+        <div style="background:var(--card); padding:15px; border-radius:12px; border:1px solid var(--accent); margin-bottom:20px;">
+            <div style="display:flex; justify-content:space-between; font-size:18px; font-weight:bold;">
                 <span>ИТОГО:</span>
                 <span id="final-sum">0 PLN</span>
             </div>
-            <div id="rate-info" style="font-size:10px; color:gray; text-align:right; margin-top:5px;"></div>
         </div>
 
-        <button onclick="sendOrder()" class="btn-add" style="padding:20px; font-size:18px; box-shadow: 0 4px 15px rgba(91, 108, 255, 0.3);">ПОДТВЕРДИТЬ ЗАКАЗ</button>
+        <button onclick="sendOrder()" class="btn-add" style="padding:15px; font-size:16px;">ОФОРМИТЬ ЗАКАЗ</button>
     </div>
 
     <script>
         let tg = window.Telegram.WebApp;
         let cart = {};
-        let rate = 0.25;
-
-        async function getRate() {
-            try {
-                let r = await fetch('https://api.exchangerate-api.com/v4/latest/PLN');
-                let d = await r.json();
-                rate = d.rates.USD;
-                document.getElementById('rate-info').innerText = "Курс: 1 PLN = " + rate.toFixed(2) + " USDT";
-            } catch(e) {}
-        }
 
         function openCategory(cat) {
             document.querySelectorAll('.page-content').forEach(el => el.style.display = 'none');
             document.getElementById('cat-page-' + cat).style.display = 'grid';
-            window.scrollTo(0,0);
         }
 
         function changeQty(id, delta) {
@@ -3802,7 +3493,7 @@
         }
 
         function openCart() {
-            if(Object.keys(cart).length === 0) return tg.showAlert("Корзина пуста!");
+            if(Object.keys(cart).length === 0) return tg.showAlert("Корзина пуста");
             document.getElementById('order-page').style.display = 'block';
             updateTotal();
         }
@@ -3811,24 +3502,17 @@
         function toggleWallet(v) { document.getElementById('wallet-info').style.display = (v==='Crypto'?'block':'none'); }
 
         function updateTotal() {
-            let pln = 0;
-            let list = document.getElementById('cart-list');
-            list.innerHTML = '';
+            let total = 0;
             for(let id in cart) {
-                let card = document.querySelector(`[data-id="${id}"]`);
-                let p = parseFloat(card.dataset.price);
-                let n = card.querySelector('.product-title').innerText;
-                pln += p * cart[id];
-                list.innerHTML += `<div style="display:flex; justify-content:space-between; margin-bottom:10px;"><span>${n} x${cart[id]}</span><b>${(p*cart[id]).toFixed(2)} PLN</b></div>`;
+                let p = parseFloat(document.querySelector(`[data-id="${id}"]`).dataset.price);
+                total += p * cart[id];
             }
-            let curr = document.getElementById('o-curr').value;
-            let res = curr === 'USD' ? (pln * rate).toFixed(2) + " USDT" : pln.toFixed(2) + " PLN";
-            document.getElementById('final-sum').innerText = res;
+            document.getElementById('final-sum').innerText = total.toFixed(2) + " PLN";
         }
 
         function sendOrder() {
             let addr = document.getElementById('o-addr').value;
-            if(!addr) return tg.showAlert("Укажите адрес!");
+            if(!addr) return tg.showAlert("Введите адрес!");
             
             let text = "💠 *НОВЫЙ ЗАКАЗ SMAK BAR*\\n\\n";
             for(let id in cart) {
@@ -3837,15 +3521,12 @@
             }
             text += `\\n💵 *Сумма:* ${document.getElementById('final-sum').innerText}\\n`;
             text += `📍 *Адрес:* ${addr}\\n`;
-            text += `💳 *Оплата:* ${document.getElementById('o-pay').value}\\n\\n`;
-            text += "🚀 _Доставляем прямо к дому!_";
             
             tg.sendData(text);
             tg.close();
         }
         
-        getRate();
-        document.body.insertAdjacentHTML('beforeend', '<div onclick="openCart()" style="position:fixed; bottom:25px; right:25px; background:var(--accent); width:65px; height:65px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 8px 25px rgba(91, 108, 255, 0.4); z-index:1000; font-size:28px; cursor:pointer;">🛒</div>');
+        document.body.insertAdjacentHTML('beforeend', '<div onclick="openCart()" style="position:fixed; bottom:20px; right:20px; background:var(--accent); width:60px; height:60px; border-radius:50%; display:flex; align-items:center; justify-content:center; box-shadow:0 4px 15px rgba(0,0,0,0.4); z-index:1000; font-size:24px; cursor:pointer;">🛒</div>');
     </script>
 </body>
 </html>
