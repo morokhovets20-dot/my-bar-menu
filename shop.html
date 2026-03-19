@@ -10,55 +10,46 @@
             --purple-grad: linear-gradient(135deg, #8e2de2, #4a00e0);
             --metal-grad: linear-gradient(to bottom, #ffffff 0%, #a1a1a1 50%, #6e6e6e 100%);
         }
-        body { font-family: sans-serif; background: var(--bg); color: var(--text); margin: 0; overflow-x: hidden; }
+        body { font-family: sans-serif; background: var(--bg); color: var(--text); margin: 0; padding-bottom: 120px; }
         
         .header { display: flex; justify-content: space-between; align-items: center; padding: 15px; border-bottom: 1px solid #2d333b; }
         .logo { font-size: 20px; font-weight: 900; background: var(--metal-grad); -webkit-background-clip: text; -webkit-text-fill-color: transparent; }
-        .admin-link { background: #2d333b; padding: 8px 15px; border-radius: 20px; font-size: 12px; color: #fff; text-decoration: none; font-weight: bold; }
+        .admin-link { background: #2d333b; padding: 8px 15px; border-radius: 20px; font-size: 11px; color: #fff; text-decoration: none; }
 
+        /* КАТЕГОРИИ */
         .cat-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 12px; padding: 15px; }
-        .cat-small-card { background: var(--card); padding: 25px 10px; border-radius: 20px; text-align: center; border: 1px solid #2d333b; transition: 0.2s; }
-        .cat-small-card:active { transform: scale(0.95); }
-        .cat-small-card .emoji { font-size: 35px; display: block; margin-bottom: 10px; }
-        .cat-small-card span { font-weight: bold; text-transform: uppercase; font-size: 12px; letter-spacing: 1px; }
+        .cat-small-card { background: var(--card); padding: 25px 10px; border-radius: 20px; text-align: center; border: 1px solid #2d333b; }
+        .cat-small-card .emoji { font-size: 30px; display: block; margin-bottom: 8px; }
 
-        /* ОКНО КАТЕГОРИИ */
-        .category-window { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); z-index: 500; overflow-y: auto; padding-bottom: 120px; animation: slideIn 0.3s ease-out; }
-        @keyframes slideIn { from { transform: translateY(100%); } to { transform: translateY(0); } }
-        
+        /* ОКНА КАТЕГОРИЙ */
+        .category-window { position: fixed; top: 0; left: 0; width: 100%; height: 100%; background: var(--bg); z-index: 500; overflow-y: auto; display: none; padding-bottom: 100px; }
         .cat-header { display: flex; align-items: center; padding: 15px; border-bottom: 1px solid #2d333b; position: sticky; top: 0; background: var(--bg); z-index: 10; }
-        .back-btn { color: var(--accent); font-weight: bold; margin-right: 20px; }
-        
-        .inner-search { padding: 10px 15px; }
-        .inner-search input { width: 100%; padding: 12px 20px; border-radius: 25px; border: 1px solid #30363d; background: var(--card); color: #fff; box-sizing: border-box; }
+        .back-btn { color: var(--accent); font-weight: bold; margin-right: 15px; }
 
         /* ТОВАРЫ */
-        .product-card { background: var(--card); border-radius: 18px; padding: 18px; margin: 10px 15px; border: 1px solid #2d333b; }
-        .p-name { font-weight: bold; font-size: 16px; color: #f0f0f0; }
-        .p-price { color: #4ade80; font-weight: 800; font-size: 18px; display: block; margin-top: 5px; }
-        .p-footer { display: flex; justify-content: space-between; align-items: center; margin-top: 15px; }
-        
-        .fav-btn { font-size: 24px; color: #30363d; }
-        .fav-btn.active { color: #ff4757; }
-        .btn-cart-main { background: var(--purple-grad); color: white; border: none; padding: 10px 22px; border-radius: 25px; font-weight: bold; }
-        
-        .p-ctrl { display: flex; align-items: center; gap: 15px; background: #000; padding: 6px 15px; border-radius: 25px; border: 1px solid var(--accent); }
-        .p-ctrl button { background: var(--accent); border: none; color: #fff; width: 32px; height: 32px; border-radius: 50%; font-size: 20px; }
+        .product-card { background: var(--card); border-radius: 15px; padding: 15px; margin: 10px 15px; border: 1px solid #2d333b; }
+        .p-price { color: #4ade80; font-weight: bold; font-size: 18px; margin-top: 5px; display: block; }
+        .btn-cart-main { background: var(--purple-grad); color: white; border: none; padding: 10px 20px; border-radius: 25px; font-weight: bold; }
+        .p-ctrl { display: flex; align-items: center; gap: 15px; background: #000; padding: 5px 15px; border-radius: 25px; border: 1px solid var(--accent); display: none; }
+        .p-ctrl button { background: var(--accent); border: none; color: #fff; width: 30px; height: 30px; border-radius: 50%; }
 
-        /* КОРЗИНА */
-        #cart-panel { position: fixed; bottom: 20px; left: 15px; right: 15px; background: #4ade80; color: #000; padding: 18px; border-radius: 20px; display: none; z-index: 1000; box-shadow: 0 10px 30px rgba(0,0,0,0.5); }
-        .cart-flex { display: flex; justify-content: space-between; align-items: center; font-weight: bold; font-size: 16px; }
+        /* ФОРМА ЗАКАЗА (ИЗ БАЗЫ) */
+        #order-form { display: none; position: fixed; bottom: 0; width: 100%; background: var(--card); padding: 20px; border-top: 3px solid var(--accent); box-sizing: border-box; z-index: 1000; border-radius: 20px 20px 0 0; max-height: 90vh; overflow-y: auto; color: white; }
+        input, select { width: 100%; padding: 12px; margin: 8px 0; background: #0b0f19; color: white; border: 1px solid #30363d; border-radius: 8px; box-sizing: border-box; }
+        .total-info { background: #0b0f19; padding: 10px; border-radius: 8px; margin-bottom: 10px; border: 1px solid #30363d; text-align: center; }
+        .w-box { background: #111; padding: 10px; border: 1px dashed var(--accent); margin-bottom: 10px; font-size: 12px; word-break: break-all; display: none; }
+        
+        #main-cart-btn { position: fixed; bottom: 80px; left: 15px; right: 15px; background: #4ade80; color: #000; padding: 15px; text-align: center; border-radius: 15px; font-weight: bold; display: none; z-index: 800; }
     </style>
 </head>
 <body>
 
 <div class="header">
     <div class="logo">Dym Rzeszów Shop</div>
-    <a href="https://t.me/dym_rzeszow" class="admin-link">Менеджер 💬</a>
+    <a href="https://t.me/твой_логин" class="admin-link">Менеджер 💬</a>
 </div>
 
 <div id="page-home">
-    <div style="padding: 20px 15px 5px; font-weight: bold; color: var(--gray); font-size: 12px; letter-spacing: 2px;">КАТЕГОРИИ</div>
     <div class="cat-grid">
             <div class="cat-small-card" onclick="openCategoryPage('Табак')">
                 <span class="emoji">🌬️</span>
@@ -4357,28 +4348,53 @@
                     </div>
                 </div></div></div></div>
 
-<div id="cart-panel" onclick="sendOrder()">
-    <div class="cart-flex">
-        <span>🛒 ОФОРМИТЬ ЗАКАЗ</span>
-        <span id="cart-total">0 PLN</span>
+<div id="order-form">
+    <h3 style="margin-top:0">Оформление заказа</h3>
+    <div class="total-info">
+        <span style="font-size:22px; font-weight:bold;"><span id="total-pln">0</span> PLN</span><br>
+        <small id="total-alt-box" style="color:var(--gray)">Загрузка курсов...</small>
     </div>
+
+    Способ получения:
+    <select id="o-method" onchange="document.getElementById('addr-input').placeholder=(this.value=='Delivery'?'Введите адрес доставки':'Место встречи в Жешуве')">
+        <option value="Delivery">Доставка 🏠</option>
+        <option value="Pickup">Самовывоз 🤝</option>
+    </select>
+    <input type="text" id="addr-input" placeholder="Введите адрес доставки">
+
+    Оплата: 
+    <select id="p-met" onchange="document.getElementById('w-info').style.display=(this.value=='USDT'?'block':'none')">
+        <option value="Cash">Наличные 💵</option>
+        <option value="USDT">USDT (TRC20) 📱</option>
+    </select>
+
+    <div id="w-info" class="w-box">
+        <b>Адрес для перевода (USDT TRC20):</b><br>
+        <code>TAHDqDoL9CZ89BbmkXH63uxJjkkuPjLjPp</code>
+    </div>
+
+    Время: <input type="text" id="o-time" value="Ближайшее время">
+    <button onclick="sendFullOrder()" style="width:100%;padding:15px;background:#4ade80;border:none;border-radius:10px;font-weight:bold;margin-top:10px">ПОДТВЕРДИТЬ</button>
+    <button onclick="document.getElementById('order-form').style.display='none'" style="width:100%;background:none;color:gray;border:none;margin-top:10px">Назад</button>
 </div>
+
+<div id="main-cart-btn" onclick="openOrderForm()">Оформить заказ (0)</div>
 
 <script>
 let tg = window.Telegram.WebApp; tg.expand();
-let cart = {};
+let cart = {}; 
+let RATES = { USD: 0.25, EUR: 0.23 };
+
+async function updateRates() {
+    try {
+        const response = await fetch('https://api.exchangerate-api.com/v4/latest/PLN');
+        const data = await response.json();
+        RATES.USD = data.rates.USD; RATES.EUR = data.rates.EUR;
+    } catch (e) { console.log("Ошибка курсов"); }
+}
 
 function openCategoryPage(c) { document.getElementById('cat-window-' + c).style.display = 'block'; }
 function closeCategoryPage() { document.querySelectorAll('.category-window').forEach(w => w.style.display = 'none'); }
-
-function filterInCategory(cat, val) {
-    let search = val.toLowerCase();
-    document.querySelectorAll('#cat-window-' + cat + ' .product-card').forEach(card => {
-        card.style.display = card.dataset.name.includes(search) ? 'block' : 'none';
-    });
-}
-
-function toggleFav(id) { document.getElementById('fav-'+id).classList.toggle('active'); }
 
 function addToCart(id) {
     document.getElementById('btn-main-' + id).style.display = 'none';
@@ -4395,38 +4411,40 @@ function changeQty(id, d) {
     } else {
         document.getElementById('q-' + id).innerText = cart[id];
     }
-    updateCartPanel();
+    updateCartBtn();
 }
 
-function updateCartPanel() {
+function updateCartBtn() {
+    let count = Object.values(cart).reduce((a, b) => a + b, 0);
+    let btn = document.getElementById('main-cart-btn');
+    btn.style.display = count > 0 ? 'block' : 'none';
+    btn.innerText = `Оформить заказ (${count})`;
+}
+
+async function openOrderForm() {
+    await updateRates();
     let total = 0;
     document.querySelectorAll('.product-card').forEach(card => {
         let id = card.querySelector('.p-ctrl').id.replace('cnt-', '');
         if(cart[id]) total += parseFloat(card.dataset.price) * cart[id];
     });
-    
-    let panel = document.getElementById('cart-panel');
-    if(total > 0) {
-        panel.style.display = 'block';
-        document.getElementById('cart-total').innerText = total.toFixed(2) + ' PLN';
-    } else {
-        panel.style.display = 'none';
-    }
+    document.getElementById('total-pln').innerText = total.toFixed(2);
+    document.getElementById('total-alt-box').innerText = `≈ ${(total * RATES.USD).toFixed(2)} USDT | ≈ ${(total * RATES.EUR).toFixed(2)} EUR`;
+    document.getElementById('order-form').style.display = 'block';
 }
 
-function sendOrder() {
-    let msg = "🛒 НОВЫЙ ЗАКАЗ:\\n";
-    let total = 0;
+function sendFullOrder() {
+    let s = ""; let total = document.getElementById('total-pln').innerText;
     document.querySelectorAll('.product-card').forEach(card => {
         let id = card.querySelector('.p-ctrl').id.replace('cnt-', '');
-        if(cart[id]) {
-            let name = card.querySelector('.p-name').innerText;
-            let price = parseFloat(card.dataset.price);
-            msg += `- ${name} x${cart[id]}\\n`;
-            total += price * cart[id];
-        }
+        if(cart[id]) s += card.dataset.brand + " x" + cart[id] + "\\n";
     });
-    msg += "\\n💰 ИТОГО: " + total.toFixed(2) + " PLN";
+    
+    let msg = "🛒 ЗАКАЗ:\\n" + s + "\\n💰 Итого: " + total + " PLN";
+    msg += "\\n📍 Способ: " + document.getElementById('o-method').value;
+    msg += "\\n🏠 Адрес: " + document.getElementById('addr-input').value;
+    msg += "\\n💳 Оплата: " + document.getElementById('p-met').value;
+    
     tg.sendData(msg);
     tg.close();
 }
